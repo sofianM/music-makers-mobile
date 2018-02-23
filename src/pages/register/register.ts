@@ -46,6 +46,7 @@ export class RegisterPage {
       email: this.model.email
     });
 
+<<<<<<< HEAD
     this.http.post(this.registerURL, registerUser, options)
       .subscribe(data => {
           console.log("subscribe: " +data);
@@ -58,6 +59,9 @@ export class RegisterPage {
         this.navCtrl.pop();
         });
     console.log(registerUser);
+=======
+    console.log("Test " + registerUser);
+>>>>>>> 0bfe969e51e17757a1682e8bf9ac3a863dda0d73
 
   }
 
