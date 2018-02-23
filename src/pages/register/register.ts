@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {RegisterUser} from "../../model/registerUser";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {LoginPage} from "../login/login";
 
 /**
  * Generated class for the RegisterPage page.
@@ -18,8 +20,9 @@ export class RegisterPage {
   model: any = {};
   private date: any;
   birthday;
+  public registerURL: 'https://music-makers.herokuapp.com/user/register';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
     this.birthday = new Date().toDateString();
   }
 
@@ -28,6 +31,9 @@ export class RegisterPage {
   }
 
   register() {
+    let options = {
+      headers: new HttpHeaders({'Content-type': 'application/json', 'Accept': 'application/json'})
+    };
 
     let registerUser = <RegisterUser>({
       firstName: this.model.firstName,
@@ -40,6 +46,17 @@ export class RegisterPage {
       email: this.model.email
     });
 
+    this.http.post(this.registerURL, registerUser, options)
+      .subscribe(data => {
+          console.log("subscribe: " +data);
+        },
+        error => {
+          console.log("error: " + error);
+        },
+        () => {
+        console.log("Complete");
+        this.navCtrl.pop();
+        });
     console.log(registerUser);
 
   }
