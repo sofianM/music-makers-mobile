@@ -40,7 +40,7 @@ export class RegisterPage {
       email: this.model.email
     });
 
-    console.log(registerUser);
+    console.log("Test " + registerUser);
 
   }
 
