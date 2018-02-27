@@ -2,7 +2,9 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {RegisterUser} from "../../model/registerUser";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import { AlertController } from 'ionic-angular';
 import {LoginPage} from "../login/login";
+import { DatePicker } from '@ionic-native/date-picker';
 
 /**
  * Generated class for the RegisterPage page.
@@ -21,10 +23,12 @@ export class RegisterPage {
   model: any = {};
   private date: any;
   birthday;
+  equalPassword: boolean;
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, private alertCtrl: AlertController, private datePicker: DatePicker) {
     this.birthday = new Date().toDateString();
   }
 
@@ -32,9 +36,32 @@ export class RegisterPage {
     console.log('ionViewDidLoad RegisterPage');
   }
 
+  checkPassword() {
+    this.equalPassword = this.model.password == (this.model.confirmPassword);
+  }
+
+  presentAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Wachtwoord',
+      subTitle: 'Wachtwoorden komen niet overeen!',
+      buttons: ['Oke']
+    });
+    alert.present();
+  }
+
+  geboortedatum() {
+    this.datePicker.show({
+      date: new Date(),
+      mode: 'date',
+      androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
+    }).then(
+      date => console.log('Got date: ', date),
+      err => console.log('Error occurred while getting date: ', err)
+    );
+  }
   register() {
     let options = {
-      headers: new HttpHeaders({'Content-type': 'application/json', 'Accept': 'application/json'})
+      headers: new HttpHeaders({'Content-type': 'application/json', 'Accept': 'application/json, */*'})
     };
 
     let registerUser = <RegisterUser>({
@@ -47,18 +74,22 @@ export class RegisterPage {
       day: parseInt(this.birthday.split('-')[2], 10),
       email: this.model.email
     });
-
-    this.http.post(this.registerUrl, registerUser, options)
-      .subscribe(data => {
-          console.log("subscribe: " +data);
-        },
-        error => {
-          console.log("error: " + error);
-        },
-        () => {
-        console.log("Complete");
-        });
-
+    this.checkPassword();
+    if(this.equalPassword){
+      this.http.post(this.registerUrl, registerUser, options)
+        .subscribe(data => {
+            console.log("subscribe: " +data);
+          },
+          error => {
+            console.log("error: ", error);
+          },
+          () => {
+            console.log("Complete");
+            this.navCtrl.pop();
+          });
+    } else {
+      this.presentAlert();
+    }
   }
 
 }

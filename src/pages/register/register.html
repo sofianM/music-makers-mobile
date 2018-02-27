@@ -13,42 +13,38 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <fieldset class="form-group">
+  <!--<ion-list>-->
+    <form>
       <ion-label color="primary">Voornaam:</ion-label>
       <ion-input placeholder="Voornaam" id="firstName" type="text" class="form-control" name="firstName"
                  [(ngModel)]="model.firstName" #email="ngModel" required></ion-input>
-    </fieldset>
 
-    <fieldset class="form-group">
       <ion-label color="primary">Achternaam:</ion-label>
       <ion-input placeholder="Achternaam" id="lastName" type="text" class="form-control" name="lastName"
                  [(ngModel)]="model.lastName" #email="ngModel" required></ion-input>
-    </fieldset>
-    <fieldset class="form-group">
+
       <ion-label color="primary">Email:</ion-label>
       <ion-input placeholder="Email" id="inputEmail" type="email" class="form-control" name="email"
                  [(ngModel)]="model.email" #email="ngModel" required></ion-input>
-    </fieldset>
 
-    <fieldset class="form-group">
       <ion-label color="primary">Wachtwoord:</ion-label>
       <ion-input id="password" type="password" class="form-control" name="password" [(ngModel)]="model.password"
                  #password="ngModel" required></ion-input>
-    </fieldset>
 
-    <fieldset class="form-group">
       <ion-label color="primary">Bevestig wachtwoord:</ion-label>
       <ion-input id="confirmPassword" type="password" class="form-control" name="confirmPassword"
                  [(ngModel)]="model.confirmPassword" #password="ngModel" required></ion-input>
-    </fieldset>
 
-    <fieldset class="form-group">
       <ion-item>
-      <ion-label color="primary">Geboortedatum:</ion-label>
-      <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD-MM-YYYY" [(ngModel)]="birthday"></ion-datetime>
+        <ion-label color="primary">Geboortedatum:</ion-label>
+        <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD-MM-YYYY" [(ngModel)]="birthday"
+                      name="birthday"></ion-datetime>
+        <!--(click)="geboortedatum()"-->
       </ion-item>
-    </fieldset>
-  </ion-list>
-  <button ion-button round (click)="register()">Register</button>
+
+      <ion-item>
+        <button ion-button round type="submit" (click)="register()">Register</button>
+      </ion-item>
+    </form>
+  <!--</ion-list>-->
 </ion-content>

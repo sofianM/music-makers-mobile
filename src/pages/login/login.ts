@@ -42,6 +42,7 @@ export class LoginPage {
           let a : any = {};
           a = data.valueOf();
           console.log(a.authorization);
+          this.storage.set('Authorization', a.authorization);
         }, error => {
           console.log("error: " + error);
         },

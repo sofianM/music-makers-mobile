@@ -14,6 +14,7 @@ import {LoginPage} from "../pages/login/login";
 import {HttpClientModule} from "@angular/common/http";
 import {RegisterPage} from "../pages/register/register";
 import {IonicStorageModule} from "@ionic/storage";
+import {DatePicker} from "@ionic-native/date-picker";
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {IonicStorageModule} from "@ionic/storage";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    LoginServiceProvider
+    LoginServiceProvider,
+    DatePicker
   ]
 })
 export class AppModule {
