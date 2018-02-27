@@ -39,10 +39,9 @@ export class LoginPage {
     let json;
     this.http.post(this.loginUrl, user, options)
       .subscribe(data => {
-        console.log(data.valueOf());
-/*        let a : any = {};
+          let a : any = {};
           a = data.valueOf();
-          console.log(a.authorization);*/
+          console.log(a.authorization);
         }, error => {
           console.log("error: " + error);
         },
