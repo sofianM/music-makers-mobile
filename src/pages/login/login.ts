@@ -36,26 +36,25 @@ export class LoginPage {
       password: this.model.password
     });
 
-    let json;
     this.http.post(this.loginUrl, user, options)
       .subscribe(data => {
-          let a : any = {};
-          a = data.valueOf();
-          console.log(a.authorization);
-          this.storage.set('Authorization', a.authorization);
+          this.storage.set('Authorization', (<any>data.valueOf()).authorization);
         }, error => {
-          console.log("error: " + error);
+          console.log("error: ", error);
         },
         () => {
+        // Login success
+          console.log("Login success");
         });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
-
   toRegister() {
-    this.navCtrl.push(RegisterPage);
+    let navOptions = {
+      animation: 'ios-transition'
+    };
+    this.navCtrl.push(RegisterPage, null, navOptions);
+
+    // this.navCtrl.push(RegisterPage);
   }
 
 }
