@@ -5,6 +5,7 @@ import {User} from "../../model/user";
 import {RegisterPage} from "../register/register";
 import {Storage} from "@ionic/storage";
 import 'rxjs/add/operator/map';
+import {DashboardPage} from "../dashboard/dashboard";
 
 
 /**
@@ -45,6 +46,7 @@ export class LoginPage {
         () => {
         // Login success
           console.log("Login success");
+          this.navCtrl.setRoot(DashboardPage);
         });
   }
 

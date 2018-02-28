@@ -11,12 +11,14 @@ import {HttpClientModule} from "@angular/common/http";
 import {RegisterPage} from "../pages/register/register";
 import {IonicStorageModule} from "@ionic/storage";
 import {DatePicker} from "@ionic-native/date-picker";
+import {DashboardPage} from "../pages/dashboard/dashboard";
 
 @NgModule({
   declarations: [
     MyApp,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    DashboardPage,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import {DatePicker} from "@ionic-native/date-picker";
   entryComponents: [
     MyApp,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    DashboardPage
   ],
   providers: [
     StatusBar,
