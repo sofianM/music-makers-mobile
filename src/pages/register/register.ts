@@ -61,10 +61,10 @@ export class RegisterPage {
   }
   register() {
     let options = {
-      headers: new HttpHeaders({'Content-type': 'application/json', 'Accept': 'application/json, */*'})
+      headers: new HttpHeaders({'Content-type': 'application/json'})
     };
 
-    let registerUser = <RegisterUser>({
+    const registerUser = <RegisterUser>({
       firstName: this.model.firstName,
       lastName: this.model.lastName,
       password: this.model.password,
@@ -74,14 +74,26 @@ export class RegisterPage {
       day: parseInt(this.birthday.split('-')[2], 10),
       email: this.model.email
     });
+
+    /*
+    console.log("firstName: " + registerUser.firstName +
+      "\nlastName: " + registerUser.lastName +
+      "\npassword: " + registerUser.password +
+      "\nconfirmPassword: " + registerUser.confirmPassword +
+      "\nyear: " + registerUser.year +
+      "\nmonth: " + registerUser.month +
+      "\nday: " + registerUser.day +
+      "\nemail: " + registerUser.email);
+    */
+
     this.checkPassword();
     if(this.equalPassword){
       this.http.post(this.registerUrl, registerUser, options)
-        .subscribe(data => {
-            console.log("subscribe: " +data);
+        .subscribe(() => {
+            console.log("succes eindelijk gvd!");
           },
           error => {
-            console.log("error: ", error);
+            console.log("Register error: ", error);
           },
           () => {
             console.log("Complete");
