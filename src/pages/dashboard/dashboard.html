@@ -10,13 +10,13 @@
 <ion-content padding>
   <div class="dashboard-buttons-container">
     <div>
-      <button class="dashboard-button" outline ion-button>Mijn Agenda</button>
+      <button class="dashboard-button" outline ion-button (click)="goToAgenda()">Mijn Agenda</button>
     </div>
     <div>
-      <button class="dashboard-button" outline ion-button>Mijn Groepen</button>
+      <button class="dashboard-button" outline ion-button (click)="goToGroups()">Mijn Groepen</button>
     </div>
     <div>
-      <button class="dashboard-button" outline ion-button>Mijn Bib</button>
+      <button class="dashboard-button" outline ion-button (click)="goToLibrary()">Mijn Bib</button>
     </div>
   </div>
 </ion-content>

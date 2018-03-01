@@ -12,6 +12,9 @@ import {RegisterPage} from "../pages/register/register";
 import {IonicStorageModule} from "@ionic/storage";
 import {DatePicker} from "@ionic-native/date-picker";
 import {DashboardPage} from "../pages/dashboard/dashboard";
+import {LibraryPage} from "../pages/library/library";
+import {GroupsPage} from "../pages/groups/groups";
+import {AgendaPage} from "../pages/agenda/agenda";
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import {DashboardPage} from "../pages/dashboard/dashboard";
     LoginPage,
     RegisterPage,
     DashboardPage,
+    LibraryPage,
+    AgendaPage,
+    GroupsPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,10 @@ import {DashboardPage} from "../pages/dashboard/dashboard";
     MyApp,
     LoginPage,
     RegisterPage,
-    DashboardPage
+    DashboardPage,
+    LibraryPage,
+    AgendaPage,
+    GroupsPage
   ],
   providers: [
     StatusBar,

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {LibraryPage} from "../library/library";
+import {AgendaPage} from "../agenda/agenda";
+import {GroupsPage} from "../groups/groups";
 
 /**
  * Generated class for the DashboardPage page.
@@ -20,6 +23,18 @@ export class DashboardPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardPage');
+  }
+
+  goToAgenda(){
+    this.navCtrl.push(AgendaPage);
+  }
+
+  goToGroups() {
+    this.navCtrl.push(GroupsPage);
+  }
+
+  goToLibrary() {
+    this.navCtrl.push(LibraryPage);
   }
 
 }
