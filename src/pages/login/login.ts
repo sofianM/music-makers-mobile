@@ -46,7 +46,7 @@ export class LoginPage {
         () => {
         // Login success
           console.log("Login success");
-          this.navCtrl.setRoot(DashboardPage);
+          this.navCtrl.push(DashboardPage);
         });
   }
 
