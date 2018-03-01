@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {LibraryPage} from "../library/library";
 import {AgendaPage} from "../agenda/agenda";
 import {GroupsPage} from "../groups/groups";
+import {Storage} from '@ionic/storage';
 
 /**
  * Generated class for the DashboardPage page.
@@ -18,14 +19,14 @@ import {GroupsPage} from "../groups/groups";
 })
 export class DashboardPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardPage');
   }
 
-  goToAgenda(){
+  goToAgenda() {
     this.navCtrl.push(AgendaPage);
   }
 
@@ -37,4 +38,11 @@ export class DashboardPage {
     this.navCtrl.push(LibraryPage);
   }
 
+  getStorage() {
+    // Or to get a key/value pair
+    this.storage.get('Authorization').then((val) => {
+      console.log('Authorization', val);
+    });
+  }
 }
+

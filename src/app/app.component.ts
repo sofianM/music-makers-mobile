@@ -11,6 +11,7 @@ import {DashboardPage} from "../pages/dashboard/dashboard";
 import {LibraryPage} from "../pages/library/library";
 import {AgendaPage} from "../pages/agenda/agenda";
 import {GroupsPage} from "../pages/groups/groups";
+import {Storage} from "@ionic/storage";
 
 
 @Component({
@@ -19,26 +20,32 @@ import {GroupsPage} from "../pages/groups/groups";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage = LoginPage;
+  public rootPage;
+
+
   pages: Array<{title: string, component: any}>;
 
   constructor(
     public platform: Platform,
     public menu: MenuController,
     public statusBar: StatusBar,
-    public splashScreen: SplashScreen
+    public splashScreen: SplashScreen,
+    private storage: Storage
   ) {
     this.initializeApp();
 
     // set our app's pages
     this.pages = [
-      { title: 'Login', component: LoginPage},
-      { title: 'Register', component: RegisterPage},
       { title: 'Dashboard', component: DashboardPage},
       { title: 'Library', component: LibraryPage},
       { title: 'Agenda', component: AgendaPage},
       { title: 'Groups', component: GroupsPage}
     ];
+
+    this.storage.get('Authorization').then(loggedIn => {
+      this.rootPage = loggedIn ? DashboardPage : LoginPage;
+      console.log(loggedIn);
+    });
   }
 
   initializeApp() {
