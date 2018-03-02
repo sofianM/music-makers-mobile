@@ -6,6 +6,7 @@ import {RegisterPage} from "../register/register";
 import {Storage} from "@ionic/storage";
 import 'rxjs/add/operator/map';
 import {DashboardPage} from "../dashboard/dashboard";
+import {LoginServiceProvider} from "../../providers/login-service/login-service";
 
 
 /**
@@ -21,22 +22,37 @@ import {DashboardPage} from "../dashboard/dashboard";
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  private loginUrl = 'https://music-makers.herokuapp.com/login';
+  // private loginUrl = 'https://music-makers.herokuapp.com/login';
   model: any = {};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, private storage: Storage) {
+  constructor(public loginServiceProvider: LoginServiceProvider, public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, private storage: Storage) {
   }
 
   login() {
+    /*
     let options = {
       headers: new HttpHeaders({'Content-type': 'application/json', 'Accept': 'application/json'})
     };
+    */
 
     let user = <User>({
       email: this.model.email,
       password: this.model.password
     });
 
+    this.loginServiceProvider.login(user)
+      .subscribe(data => {
+        this.storage.set('Authorization', (<any>data.valueOf()).authorization);
+      }, error => {
+        console.log("error: ", error);
+      },
+      () => {
+        // Login success
+        console.log("Login success");
+        this.navCtrl.setRoot(DashboardPage);
+      });
+
+    /*
     this.http.post(this.loginUrl, user, options)
       .subscribe(data => {
           this.storage.set('Authorization', (<any>data.valueOf()).authorization);
@@ -48,6 +64,7 @@ export class LoginPage {
           console.log("Login success");
           this.navCtrl.setRoot(DashboardPage);
         });
+     */
   }
 
   toRegister() {

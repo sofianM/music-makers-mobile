@@ -1,6 +1,7 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {User} from "../../model/user";
+import {Observable} from "rxjs/Observable";
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-type': 'application/json', 'Accept': 'application/json'})
@@ -11,20 +12,10 @@ export class LoginServiceProvider {
 
   private loginUrl = 'https://music-makers.herokuapp.com/login';
 
-  constructor(public http: HttpClient) {
-    console.log('Hello LoginServiceProvider Provider');
-  }
+  constructor(public http: HttpClient) {}
 
-  login(user: User) {
-    /*
-    if (this.data){
-      return Promise.resolve(this.data);
-    }
-    */
-
-    return new Promise(resolve => {
-      this.http.post(this.loginUrl, user, httpOptions)
-    })
+  login(user: User): Observable<any> {
+    return this.http.post(this.loginUrl, user, httpOptions);
   }
 
 }

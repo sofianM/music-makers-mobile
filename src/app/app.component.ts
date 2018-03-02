@@ -63,4 +63,10 @@ export class MyApp {
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
   }
+
+  public logout() {
+    this.storage.remove('Authorization');
+    this.menu.close();
+    this.nav.setRoot(LoginPage);
+  }
 }
