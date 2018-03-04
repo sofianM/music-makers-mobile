@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {User} from "../../model/user";
 import {RegisterPage} from "../register/register";
 import {Storage} from "@ionic/storage";
@@ -22,19 +22,13 @@ import {LoginServiceProvider} from "../../providers/login-service/login-service"
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  // private loginUrl = 'https://music-makers.herokuapp.com/login';
   model: any = {};
+  public visible = false;
 
   constructor(public loginServiceProvider: LoginServiceProvider, public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, private storage: Storage) {
   }
 
   login() {
-    /*
-    let options = {
-      headers: new HttpHeaders({'Content-type': 'application/json', 'Accept': 'application/json'})
-    };
-    */
-
     let user = <User>({
       email: this.model.email,
       password: this.model.password
@@ -43,28 +37,16 @@ export class LoginPage {
     this.loginServiceProvider.login(user)
       .subscribe(data => {
         this.storage.set('Authorization', (<any>data.valueOf()).authorization);
+        this.storage.set('Role', (<any>data.valueOf()).roles[0]);
       }, error => {
         console.log("error: ", error);
+        this.visible = true;
       },
       () => {
-        // Login success
         console.log("Login success");
+        if (this.visible) this.visible = false;
         this.navCtrl.setRoot(DashboardPage);
       });
-
-    /*
-    this.http.post(this.loginUrl, user, options)
-      .subscribe(data => {
-          this.storage.set('Authorization', (<any>data.valueOf()).authorization);
-        }, error => {
-          console.log("error: ", error);
-        },
-        () => {
-        // Login success
-          console.log("Login success");
-          this.navCtrl.setRoot(DashboardPage);
-        });
-     */
   }
 
   toRegister() {

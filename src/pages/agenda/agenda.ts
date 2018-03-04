@@ -1,5 +1,10 @@
-import { Component, Input, ViewChild, ElementRef, Renderer } from '@angular/core';
+import {Component} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {HttpClient} from "@angular/common/http";
+import {CalendarLessonDTO} from "../../model/calendarLesson";
+import {LessonServiceProvider} from "../../providers/lesson-service/lesson-service";
+import {Storage} from "@ionic/storage";
+import {LessondetailsPage} from "../lessondetails/lessondetails";
 
 /**
  * Generated class for the AgendaPage page.
@@ -13,17 +18,31 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-agenda',
   templateUrl: 'agenda.html',
 })
+
 export class AgendaPage {
+  public lessons: CalendarLessonDTO[];
 
-  @ViewChild('expandWrapper', {read: ElementRef}) expandWrapper;
-  @Input('expanded') expanded;
-  @Input('expandHeight') expandHeight;
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public http: HttpClient,
+              public lessonServiceProvider: LessonServiceProvider,
+              public storage: Storage) {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public renderer: Renderer) {
+    // fetch token from storage and pass it with our provider
+    this.storage.get('Authorization').then((res) => {
+      this.lessonServiceProvider.getLessons(res)
+        .subscribe( res => {
+          this.lessons = res;
+          console.log('Inside subscribe');
+          for (let lesson of this.lessons) {
+            console.log('Lesson ' + lesson.id + ': ' + lesson.name);
+          }
+        });
+    });
   }
 
-  ngAfterViewInit(){
-    this.renderer.setElementStyle(this.expandWrapper.nativeElement, 'height', this.expandHeight + 'px');
+  goToDetails(l: CalendarLessonDTO) {
+    this.navCtrl.push(LessondetailsPage, {lesson: l});
   }
 
   ionViewDidLoad() {

@@ -5,17 +5,19 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-list>
-      <ion-item>
-        <ion-label color="primary">Email: </ion-label>
-        <ion-input placeholder="Email" id="inputEmail" type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required autofocus ></ion-input>
-      </ion-item>
+  <p class="login-fail" align="center" [hidden]="!visible">Foute login gegevens, probeer opnieuw.</p>
 
-      <ion-item>
-        <ion-label color="primary">Wachtwoord: </ion-label>
-        <ion-input placeholder="*****"  id="inputPassword" type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required></ion-input>
-      </ion-item>
-    </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary">Email: </ion-label>
+      <ion-input placeholder="Email" id="inputEmail" type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required autofocus ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Wachtwoord: </ion-label>
+      <ion-input placeholder="*****"  id="inputPassword" type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required></ion-input>
+    </ion-item>
+  </ion-list>
 
   <div class="button-container">
     <div class="button-wrapper">

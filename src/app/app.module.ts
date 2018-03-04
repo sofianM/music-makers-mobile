@@ -15,6 +15,9 @@ import {DashboardPage} from "../pages/dashboard/dashboard";
 import {LibraryPage} from "../pages/library/library";
 import {GroupsPage} from "../pages/groups/groups";
 import {AgendaPage} from "../pages/agenda/agenda";
+import { LessonServiceProvider } from '../providers/lesson-service/lesson-service';
+import { RegisterServiceProvider } from '../providers/register-service/register-service';
+import {LessondetailsPage} from "../pages/lessondetails/lessondetails";
 
 @NgModule({
   declarations: [
@@ -23,8 +26,9 @@ import {AgendaPage} from "../pages/agenda/agenda";
     RegisterPage,
     DashboardPage,
     LibraryPage,
+    GroupsPage,
     AgendaPage,
-    GroupsPage
+    LessondetailsPage
   ],
   imports: [
     BrowserModule,
@@ -39,15 +43,18 @@ import {AgendaPage} from "../pages/agenda/agenda";
     RegisterPage,
     DashboardPage,
     LibraryPage,
+    GroupsPage,
     AgendaPage,
-    GroupsPage
+    LessondetailsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginServiceProvider,
-    DatePicker
+    DatePicker,
+    LessonServiceProvider,
+    RegisterServiceProvider
   ]
 })
 export class AppModule {

@@ -2,6 +2,14 @@ page-login {
 
 }
 
+ion-header {
+  padding-bottom: 25%;
+}
+
+.login-fail {
+  color: #FF0000;
+}
+
 .button-container {
   display: flex;
   justify-content: center;

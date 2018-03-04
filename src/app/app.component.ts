@@ -6,7 +6,6 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {LoginPage} from "../pages/login/login";
-import {RegisterPage} from "../pages/register/register";
 import {DashboardPage} from "../pages/dashboard/dashboard";
 import {LibraryPage} from "../pages/library/library";
 import {AgendaPage} from "../pages/agenda/agenda";
@@ -44,7 +43,6 @@ export class MyApp {
 
     this.storage.get('Authorization').then(loggedIn => {
       this.rootPage = loggedIn ? DashboardPage : LoginPage;
-      console.log(loggedIn);
     });
   }
 

@@ -5,6 +5,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { AlertController } from 'ionic-angular';
 import {LoginPage} from "../login/login";
 import { DatePicker } from '@ionic-native/date-picker';
+import {RegisterServiceProvider} from "../../providers/register-service/register-service";
 
 /**
  * Generated class for the RegisterPage page.
@@ -19,16 +20,15 @@ import { DatePicker } from '@ionic-native/date-picker';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-  private registerUrl = 'https://music-makers.herokuapp.com/user/register';
   model: any = {};
-  private date: any;
   birthday;
   equalPassword: boolean;
 
-
-
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, private alertCtrl: AlertController, private datePicker: DatePicker) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public http: HttpClient,
+              private alertCtrl: AlertController,
+              private registerServiceProvider: RegisterServiceProvider) {
     this.birthday = new Date().toDateString();
   }
 
@@ -36,34 +36,7 @@ export class RegisterPage {
     console.log('ionViewDidLoad RegisterPage');
   }
 
-  checkPassword() {
-    this.equalPassword = this.model.password == (this.model.confirmPassword);
-  }
-
-  presentAlert() {
-    let alert = this.alertCtrl.create({
-      title: 'Wachtwoord',
-      subTitle: 'Wachtwoorden komen niet overeen!',
-      buttons: ['Oke']
-    });
-    alert.present();
-  }
-
-  geboortedatum() {
-    this.datePicker.show({
-      date: new Date(),
-      mode: 'date',
-      androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
-    }).then(
-      date => console.log('Got date: ', date),
-      err => console.log('Error occurred while getting date: ', err)
-    );
-  }
   register() {
-    let options = {
-      headers: new HttpHeaders({'Content-type': 'application/json'})
-    };
-
     const registerUser = <RegisterUser>({
       firstName: this.model.firstName,
       lastName: this.model.lastName,
@@ -75,20 +48,9 @@ export class RegisterPage {
       email: this.model.email
     });
 
-    /*
-    console.log("firstName: " + registerUser.firstName +
-      "\nlastName: " + registerUser.lastName +
-      "\npassword: " + registerUser.password +
-      "\nconfirmPassword: " + registerUser.confirmPassword +
-      "\nyear: " + registerUser.year +
-      "\nmonth: " + registerUser.month +
-      "\nday: " + registerUser.day +
-      "\nemail: " + registerUser.email);
-    */
-
     this.checkPassword();
     if(this.equalPassword){
-      this.http.post(this.registerUrl, registerUser, options)
+      this.registerServiceProvider.register(registerUser)
         .subscribe(() => {
             console.log("succes eindelijk gvd!");
           },
@@ -102,6 +64,19 @@ export class RegisterPage {
     } else {
       this.presentAlert();
     }
+  }
+
+  checkPassword() {
+    this.equalPassword = this.model.password == (this.model.confirmPassword);
+  }
+
+  presentAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Wachtwoord',
+      subTitle: 'Wachtwoorden komen niet overeen!',
+      buttons: ['Oke']
+    });
+    alert.present();
   }
 
 }
