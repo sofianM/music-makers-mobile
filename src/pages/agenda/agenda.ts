@@ -28,7 +28,7 @@ export class AgendaPage {
               public lessonServiceProvider: LessonServiceProvider,
               public storage: Storage) {
 
-    // fetch token from storage and pass it with our provider
+/*    // fetch token from storage and pass it with our provider
     this.storage.get('Authorization').then((res) => {
       this.lessonServiceProvider.getLessons(res)
         .subscribe( res => {
@@ -38,12 +38,12 @@ export class AgendaPage {
             console.log('Lesson ' + lesson.id + ': ' + lesson.name);
           }
         });
-    });
+    });*/
   }
-
+/*
   goToDetails(l: CalendarLessonDTO) {
     this.navCtrl.push(LessondetailsPage, {lesson: l});
-  }
+  }*/
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AgendaPage');

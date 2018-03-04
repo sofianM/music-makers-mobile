@@ -14,8 +14,9 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let l of lessons" (click)="goToDetails(l)">
-      {{l.name}}
-    </button>
+    <!--Component maken voor Les, Repitie, & Optreden apart of samen?
+    -- Even nadenken hoe we dit gaan regelen
+    -->
+    <c-agenda></c-agenda>
   </ion-list>
 </ion-content>

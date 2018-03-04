@@ -25,7 +25,8 @@ export class LoginPage {
   model: any = {};
   public visible = false;
 
-  constructor(public loginServiceProvider: LoginServiceProvider, public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, private storage: Storage) {
+  constructor(public loginServiceProvider: LoginServiceProvider, public navCtrl: NavController,
+              public navParams: NavParams, public http: HttpClient, private storage: Storage) {
   }
 
   login() {
