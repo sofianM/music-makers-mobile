@@ -5,14 +5,14 @@
         <button ion-button clear small icon-only item-right>
           <ion-icon color="light" [name]="icon"></ion-icon>
         </button>
-        Lessen
+        Repetitie
       </ion-item>
     </ion-list>
   </ion-card-header>
   <ion-card-content #cc>
     <button
-      ion-button clear small icon-only *ngFor="let l of lessons" (click)="goToDetails(l)">
-      {{l.name}}
+      ion-button clear small icon-only (click)="goToDetails(l)">
+      Toon repetitie
     </button>
   </ion-card-content>
 </ion-card>
