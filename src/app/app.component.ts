@@ -11,6 +11,7 @@ import {LibraryPage} from "../pages/library/library";
 import {AgendaPage} from "../pages/agenda/agenda";
 import {GroupsPage} from "../pages/groups/groups";
 import {Storage} from "@ionic/storage";
+import {UsersettingsPage} from "../pages/usersettings/usersettings";
 
 
 @Component({
@@ -66,5 +67,10 @@ export class MyApp {
     this.storage.remove('Authorization');
     this.menu.close();
     this.nav.setRoot(LoginPage);
+  }
+
+  goToUserSettings() {
+    this.menu.close();
+    this.nav.push(UsersettingsPage);
   }
 }

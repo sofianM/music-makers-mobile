@@ -19,6 +19,7 @@ import { LessonServiceProvider } from '../providers/lesson-service/lesson-servic
 import { RegisterServiceProvider } from '../providers/register-service/register-service';
 import {LessondetailsPage} from "../pages/lessondetails/lessondetails";
 import {CAgendaComponent} from "../components/c-agenda/c-agenda";
+import {UsersettingsPage} from "../pages/usersettings/usersettings";
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {CAgendaComponent} from "../components/c-agenda/c-agenda";
     GroupsPage,
     AgendaPage,
     LessondetailsPage,
+    UsersettingsPage,
     CAgendaComponent
   ],
   imports: [
@@ -47,7 +49,8 @@ import {CAgendaComponent} from "../components/c-agenda/c-agenda";
     LibraryPage,
     GroupsPage,
     AgendaPage,
-    LessondetailsPage
+    LessondetailsPage,
+    UsersettingsPage
   ],
   providers: [
     StatusBar,
