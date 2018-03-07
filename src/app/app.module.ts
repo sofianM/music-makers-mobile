@@ -23,6 +23,7 @@ import {UsersettingsPage} from "../pages/usersettings/usersettings";
 import {CLessonComponent} from "../components/c-lesson/c-lesson";
 import {CConcertComponent} from "../components/c-concert/c-concert";
 import {CRehearsalComponent} from "../components/c-rehearsal/c-rehearsal";
+import { UserServiceProvider } from '../providers/user-service/user-service';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import {CRehearsalComponent} from "../components/c-rehearsal/c-rehearsal";
     LoginServiceProvider,
     DatePicker,
     LessonServiceProvider,
-    RegisterServiceProvider
+    RegisterServiceProvider,
+    UserServiceProvider
   ]
 })
 export class AppModule {
