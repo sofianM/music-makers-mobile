@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {DashboardPage} from "../dashboard/dashboard";
 
 /**
  * Generated class for the UsersettingsPage page.
@@ -14,12 +15,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'usersettings.html',
 })
 export class UsersettingsPage {
+  firstName: string;
+  lastName: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UsersettingsPage');
+  }
+
+  test() {
+    this.navCtrl.setRoot(DashboardPage);
   }
 
 }
