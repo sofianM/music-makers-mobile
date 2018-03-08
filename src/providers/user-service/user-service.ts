@@ -29,12 +29,12 @@ export class UserServiceProvider {
     return this.http.get(this.userProfilePictureUrl, httpOptions);
   }
 
-  public postUserProfilePicture(token: string) {
+  public postUserProfilePicture(token: string, pic: string) {
     let httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': token})
     };
 
-    return this.http.post(this.userProfilePictureUrl, httpOptions);
+    return this.http.post(this.userProfilePictureUrl, pic, httpOptions);
   }
 
 }
