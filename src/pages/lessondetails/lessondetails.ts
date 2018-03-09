@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 
 /**
  * Generated class for the LessondetailsPage page.
@@ -14,12 +14,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'lessondetails.html',
 })
 export class LessondetailsPage {
+  public lesson = this.navParams.get("lesson");
+  absent: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  }
+
+  capitalize(input) {
+    return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LessondetailsPage');
+  }
+
+  setAbsent(iser) {
+    console.log(this.absent);
   }
 
 }
