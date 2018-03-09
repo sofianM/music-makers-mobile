@@ -23,7 +23,7 @@ import {LoginServiceProvider} from "../../providers/login-service/login-service"
 })
 export class LoginPage {
   model: any = {};
-  public visible = false;
+  public errorVisible = false;
 
   constructor(public loginServiceProvider: LoginServiceProvider,
               public navCtrl: NavController,
@@ -31,6 +31,7 @@ export class LoginPage {
               public navParams: NavParams,
               public http: HttpClient,
               private storage: Storage) {
+    // Disable sidemenus (unneeded for login)
     this.menuCtrl.enable(false, 'leftSideMenu');
     this.menuCtrl.enable(false, 'rightSideMenu');
   }
@@ -47,12 +48,12 @@ export class LoginPage {
         this.storage.set('Role', (<any>data.valueOf()).roles[0]);
       }, error => {
         console.log("error: ", error);
-        this.visible = true;
+        this.errorVisible = true;
       },
       () => {
         console.log("Login success");
-        if (this.visible) this.visible = false;
-
+        if (this.errorVisible) this.errorVisible = false;
+        // show menus again after successful login
         this.menuCtrl.enable(true, 'leftSideMenu');
         this.menuCtrl.enable(true, 'rightSideMenu');
         this.navCtrl.setRoot(DashboardPage);
@@ -64,8 +65,6 @@ export class LoginPage {
       animation: 'ios-transition'
     };
     this.navCtrl.push(RegisterPage, null, navOptions);
-
-    // this.navCtrl.push(RegisterPage);
   }
 
 }

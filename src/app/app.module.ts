@@ -28,6 +28,7 @@ import {GroupServiceProvider} from "../providers/group-service/group-service";
 import { UserServiceProvider } from '../providers/user-service/user-service';
 import {Camera} from "@ionic-native/camera";
 import {Crop} from "@ionic-native/crop";
+import {Base64} from "@ionic-native/base64";
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import {Crop} from "@ionic-native/crop";
     GroupServiceProvider,
     UserServiceProvider,
     Camera,
-    Crop
+    Crop,
+    Base64
   ]
 })
 export class AppModule {
