@@ -28,7 +28,7 @@ export class LessondetailsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LessondetailsPage');
-    //& nu?
+    //& dsqffsdfqd?
   }
 
 
