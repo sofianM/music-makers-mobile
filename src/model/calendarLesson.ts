@@ -31,7 +31,7 @@ export class CalendarLessonDateChronology {
 
 export class CalendarLessonTime {
   hour: Number;
-  minute: Number;
+  minute: String;
   second: Number;
   nano: Number;
 }

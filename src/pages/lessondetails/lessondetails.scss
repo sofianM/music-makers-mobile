@@ -1,3 +1,21 @@
 page-lessondetails {
-
+  table {
+    width: 35%;
+    margin-left: 35%;
+  }
+  table, th, td {
+    text-align: center;
+    //border: 1px solid black;
+  }
+  th, td {
+    padding: 5px;
+    text-align: left;
+  }
+  .title {
+    text-align: center;
+  }
+  .absent {
+    width: 30%  ;
+    margin-left: 34%;
+  }
 }

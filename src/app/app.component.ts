@@ -11,6 +11,7 @@ import {LibraryPage} from "../pages/library/library";
 import {AgendaPage} from "../pages/agenda/agenda";
 import {GroupsPage} from "../pages/groups/groups";
 import {Storage} from "@ionic/storage";
+import {LessondetailsPage} from "../pages/lessondetails/lessondetails";
 
 
 @Component({
@@ -42,7 +43,8 @@ export class MyApp {
     ];
 
     this.storage.get('Authorization').then(loggedIn => {
-      this.rootPage = loggedIn ? DashboardPage : LoginPage;
+      // this.rootPage = loggedIn ? DashboardPage : LoginPage;
+      this.rootPage = loggedIn ? AgendaPage : LoginPage;
     });
   }
 

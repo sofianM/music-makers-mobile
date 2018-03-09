@@ -21,6 +21,7 @@ export class CLessonComponent implements OnInit{
   accordionExapanded = false;
   @ViewChild("cc") cardContent: any;
 
+
   icon: string = "arrow-forward";
 
   constructor(public navCtrl: NavController,public renderer: Renderer2, public storage: Storage,public lessonServiceProvider: LessonServiceProvider,) {
@@ -28,7 +29,7 @@ export class CLessonComponent implements OnInit{
       this.lessonServiceProvider.getLessons(res)
         .subscribe( res => {
           this.lessons = res;
-          console.log('Inside subscribe');
+          console.log('Inside subscribe: ', res);
           for (let lesson of this.lessons) {
             console.log('Lesson ' + lesson.id + ': ' + lesson.name);
           }

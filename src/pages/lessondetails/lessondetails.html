@@ -7,12 +7,49 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>lessondetails</ion-title>
+    <ion-title>Lessons Details</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <table>
+    <tr>
+      <th colspan="2" class="title">{{lesson.name}}</th>
+    </tr>
+    <tr>
+      <th colspan="2" class="title">{{capitalize(this.lesson.startDates[0].dayOfWeek)}} {{this.lesson.startDates[0].dayOfMonth}} {{this.lesson.startDates[0].month.toLocaleLowerCase()}} {{this.lesson.startDates[0].year}}</th>
+    </tr>
+    <tr>
+      <th>Start:</th>
+      <td>{{lesson.startTime.hour}}:{{lesson.startTime.minute}}</td>
+    </tr>
+    <tr>
+      <th>Einde:</th>
+      <td>{{lesson.endTime.hour}}:{{lesson.endTime.minute}}</td>
+    </tr>
+    <tr>
+      <th>Instrument:</th>
+      <td>{{lesson.instrumentName}}</td>
+    </tr>
+    <tr>
+      <th>Docent:</th>
+      <td>{{lesson.teacherName}}</td>
+    </tr>
+    <tr>
+      <th>Informatie:</th>
+      <td>{{lesson.description}}</td>
+    </tr>
+  </table>
+  <div class="absent">
+    <ion-item>
+      <ion-label>Absent</ion-label>
+      <ion-toggle [(ngModel)]="absent" (ionChange)="setAbsent()"></ion-toggle>
+    </ion-item>
+  </div>
 
+  <ion-item>
+    <button (click)="setAbsent"></button>
+  </ion-item>
 </ion-content>
