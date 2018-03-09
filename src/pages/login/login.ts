@@ -52,6 +52,9 @@ export class LoginPage {
       () => {
         console.log("Login success");
         if (this.visible) this.visible = false;
+
+        this.menuCtrl.enable(true, 'leftSideMenu');
+        this.menuCtrl.enable(true, 'rightSideMenu');
         this.navCtrl.setRoot(DashboardPage);
       });
   }
