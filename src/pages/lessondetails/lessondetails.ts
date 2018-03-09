@@ -18,6 +18,7 @@ export class LessondetailsPage {
   absent: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    console.log("Test new branch");
 
   }
 

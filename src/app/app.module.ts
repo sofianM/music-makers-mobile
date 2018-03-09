@@ -18,7 +18,6 @@ import {AgendaPage} from "../pages/agenda/agenda";
 import { LessonServiceProvider } from '../providers/lesson-service/lesson-service';
 import { RegisterServiceProvider } from '../providers/register-service/register-service';
 import {LessondetailsPage} from "../pages/lessondetails/lessondetails";
-// import {CAg} from "../components/c-agenda/c-agenda";
 import {UsersettingsPage} from "../pages/usersettings/usersettings";
 import {CLessonComponent} from "../components/c-lesson/c-lesson";
 import {CConcertComponent} from "../components/c-concert/c-concert";
@@ -38,7 +37,6 @@ import {Crop} from "@ionic-native/crop";
     AgendaPage,
     LessondetailsPage,
     UsersettingsPage,
-    // CAgendaComponent,
     CLessonComponent,
     CRehearsalComponent,
     CConcertComponent
