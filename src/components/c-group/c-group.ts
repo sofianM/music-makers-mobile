@@ -8,6 +8,7 @@ import {GroupUserDTO} from "../../model/groupUser";
 import {GroupDTO} from "../../model/group";
 import {LessondetailsPage} from "../../pages/lessondetails/lessondetails";
 import {GroupsPage} from "../../pages/groups/groups";
+import {GroupdetailsPage} from "../../pages/groupdetails/groupdetails";
 
 /**
  * Generated class for the CGroupComponent component.
@@ -44,7 +45,7 @@ export class CGroupComponent implements OnInit{
     this.renderer.setStyle(this.cardContent.nativeElement, "webkitTransition", "max-height 500ms, padding 500ms");
   }
   goToStudents(g: GroupDTO) {
-    this.navCtrl.push(GroupsPage, {group: g});
+    this.navCtrl.push(GroupdetailsPage, {group: g});
   }
   toggleAccordion() {
     if (this.accordionExapanded) {
