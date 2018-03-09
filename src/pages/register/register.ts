@@ -1,10 +1,8 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, MenuController, NavController, NavParams} from 'ionic-angular';
 import {RegisterUser} from "../../model/registerUser";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import { AlertController } from 'ionic-angular';
-import {LoginPage} from "../login/login";
-import { DatePicker } from '@ionic-native/date-picker';
 import {RegisterServiceProvider} from "../../providers/register-service/register-service";
 
 /**
@@ -25,11 +23,14 @@ export class RegisterPage {
   equalPassword: boolean;
 
   constructor(public navCtrl: NavController,
+              public menuCtrl: MenuController,
               public navParams: NavParams,
               public http: HttpClient,
               private alertCtrl: AlertController,
               private registerServiceProvider: RegisterServiceProvider) {
     this.birthday = new Date().toDateString();
+    this.menuCtrl.enable(false, 'leftSideMenu');
+    this.menuCtrl.enable(false, 'rightSideMenu');
   }
 
   ionViewDidLoad() {

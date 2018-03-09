@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, MenuController} from 'ionic-angular';
 import {HttpClient} from "@angular/common/http";
 import {User} from "../../model/user";
 import {RegisterPage} from "../register/register";
@@ -25,8 +25,14 @@ export class LoginPage {
   model: any = {};
   public visible = false;
 
-  constructor(public loginServiceProvider: LoginServiceProvider, public navCtrl: NavController,
-              public navParams: NavParams, public http: HttpClient, private storage: Storage) {
+  constructor(public loginServiceProvider: LoginServiceProvider,
+              public navCtrl: NavController,
+              public menuCtrl: MenuController,
+              public navParams: NavParams,
+              public http: HttpClient,
+              private storage: Storage) {
+    this.menuCtrl.enable(false, 'leftSideMenu');
+    this.menuCtrl.enable(false, 'rightSideMenu');
   }
 
   login() {
