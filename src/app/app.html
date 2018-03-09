@@ -1,7 +1,7 @@
-<ion-menu [content]="content">
+<ion-menu id="leftSideMenu" side="left" [content]="content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu</ion-title>
+      <ion-title>Navigate</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -11,11 +11,22 @@
         {{p.title}}
       </button>
     </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-menu id="rightSideMenu" [content]="content" side="right">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Settings</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
     <ion-list>
+      <button menuClose ion-item (click)="goToUserSettings()">Account Settings</button>
       <button menuClose ion-item (click)="logout()">Logout</button>
     </ion-list>
   </ion-content>
-
 </ion-menu>
 
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

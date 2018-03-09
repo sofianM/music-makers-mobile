@@ -18,9 +18,14 @@ import {AgendaPage} from "../pages/agenda/agenda";
 import { LessonServiceProvider } from '../providers/lesson-service/lesson-service';
 import { RegisterServiceProvider } from '../providers/register-service/register-service';
 import {LessondetailsPage} from "../pages/lessondetails/lessondetails";
+import {CAgendaComponent} from "../components/c-agenda/c-agenda";
+import {UsersettingsPage} from "../pages/usersettings/usersettings";
 import {CLessonComponent} from "../components/c-lesson/c-lesson";
 import {CConcertComponent} from "../components/c-concert/c-concert";
 import {CRehearsalComponent} from "../components/c-rehearsal/c-rehearsal";
+import { UserServiceProvider } from '../providers/user-service/user-service';
+import {Camera} from "@ionic-native/camera";
+import {Crop} from "@ionic-native/crop";
 
 @NgModule({
   declarations: [
@@ -32,9 +37,11 @@ import {CRehearsalComponent} from "../components/c-rehearsal/c-rehearsal";
     GroupsPage,
     AgendaPage,
     LessondetailsPage,
+    UsersettingsPage,
+    CAgendaComponent,
     CLessonComponent,
     CRehearsalComponent,
-    CConcertComponent
+    CConcertComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +58,8 @@ import {CRehearsalComponent} from "../components/c-rehearsal/c-rehearsal";
     LibraryPage,
     GroupsPage,
     AgendaPage,
-    LessondetailsPage
+    LessondetailsPage,
+    UsersettingsPage,
   ],
   providers: [
     StatusBar,
@@ -60,7 +68,10 @@ import {CRehearsalComponent} from "../components/c-rehearsal/c-rehearsal";
     LoginServiceProvider,
     DatePicker,
     LessonServiceProvider,
-    RegisterServiceProvider
+    RegisterServiceProvider,
+    UserServiceProvider,
+    Camera,
+    Crop
   ]
 })
 export class AppModule {
