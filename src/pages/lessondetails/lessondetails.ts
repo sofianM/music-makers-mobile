@@ -28,7 +28,9 @@ export class LessondetailsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LessondetailsPage');
+    //test
   }
+
 
   setAbsent(iser) {
     console.log(this.absent);
