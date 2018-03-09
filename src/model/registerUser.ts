@@ -1,10 +1,10 @@
 export class RegisterUser{
-  email: String;
-  password: String;
-  confirmPassword: String;
-  day: Number;
-  month: Number;
-  year: Number;
-  firstName: String;
-  lastName: String;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  day: number;
+  month: number;
+  year: number;
+  firstName: string;
+  lastName: string;
 }

@@ -25,6 +25,9 @@ import {CConcertComponent} from "../components/c-concert/c-concert";
 import {CRehearsalComponent} from "../components/c-rehearsal/c-rehearsal";
 import {CGroupComponent} from "../components/c-group/c-group";
 import {GroupServiceProvider} from "../providers/group-service/group-service";
+import { UserServiceProvider } from '../providers/user-service/user-service';
+import {Camera} from "@ionic-native/camera";
+import {Crop} from "@ionic-native/crop";
 
 @NgModule({
   declarations: [
@@ -40,8 +43,8 @@ import {GroupServiceProvider} from "../providers/group-service/group-service";
     CAgendaComponent,
     CLessonComponent,
     CRehearsalComponent,
-    CConcertComponent,
-    CGroupComponent
+    CGroupComponent,
+    CConcertComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,10 @@ import {GroupServiceProvider} from "../providers/group-service/group-service";
     DatePicker,
     LessonServiceProvider,
     RegisterServiceProvider,
-    GroupServiceProvider
+    GroupServiceProvider,
+    UserServiceProvider,
+    Camera,
+    Crop
   ]
 })
 export class AppModule {
