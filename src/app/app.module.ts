@@ -28,6 +28,7 @@ import {GroupServiceProvider} from "../providers/group-service/group-service";
 import { UserServiceProvider } from '../providers/user-service/user-service';
 import {Camera} from "@ionic-native/camera";
 import {Crop} from "@ionic-native/crop";
+import {GroupdetailsPage} from "../pages/groupdetails/groupdetails";
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import {Crop} from "@ionic-native/crop";
     AgendaPage,
     LessondetailsPage,
     UsersettingsPage,
+    GroupdetailsPage,
     CLessonComponent,
     CRehearsalComponent,
     CGroupComponent,
@@ -64,7 +66,8 @@ import {Crop} from "@ionic-native/crop";
     GroupsPage,
     AgendaPage,
     LessondetailsPage,
-    UsersettingsPage
+    UsersettingsPage,
+    GroupdetailsPage,
   ],
   providers: [
     StatusBar,

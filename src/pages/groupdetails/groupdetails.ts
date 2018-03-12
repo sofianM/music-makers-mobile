@@ -14,6 +14,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'groupdetails.html',
 })
 export class GroupdetailsPage {
+  public group = this.navParams.get("group");
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
