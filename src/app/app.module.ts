@@ -22,13 +22,14 @@ import {LessondetailsPage} from "../pages/lessondetails/lessondetails";
 import {UsersettingsPage} from "../pages/usersettings/usersettings";
 import {CLessonComponent} from "../components/c-lesson/c-lesson";
 import {CConcertComponent} from "../components/c-concert/c-concert";
-import {CRehearsalComponent} from "../components/c-rehearsal/c-rehearsal";
 import {CGroupComponent} from "../components/c-group/c-group";
 import {GroupServiceProvider} from "../providers/group-service/group-service";
 import { UserServiceProvider } from '../providers/user-service/user-service';
 import {Camera} from "@ionic-native/camera";
 import {Crop} from "@ionic-native/crop";
 import {GroupdetailsPage} from "../pages/groupdetails/groupdetails";
+import {CRepititionComponent} from "../components/c-repitition/c-repitition";
+import {RepititiondetailsPage} from "../pages/repititiondetails/repititiondetails";
 
 @NgModule({
   declarations: [
@@ -42,13 +43,12 @@ import {GroupdetailsPage} from "../pages/groupdetails/groupdetails";
     LessondetailsPage,
     UsersettingsPage,
     GroupdetailsPage,
+    RepititiondetailsPage,
     CLessonComponent,
-    CRehearsalComponent,
     CGroupComponent,
-    // CAgendaComponent,
     CLessonComponent,
-    CRehearsalComponent,
-    CConcertComponent
+    CConcertComponent,
+    CRepititionComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +68,7 @@ import {GroupdetailsPage} from "../pages/groupdetails/groupdetails";
     LessondetailsPage,
     UsersettingsPage,
     GroupdetailsPage,
+    RepititiondetailsPage
   ],
   providers: [
     StatusBar,
