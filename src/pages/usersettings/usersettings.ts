@@ -4,6 +4,7 @@ import {UserServiceProvider} from "../../providers/user-service/user-service";
 import {Storage} from "@ionic/storage";
 import {Camera, CameraOptions} from "@ionic-native/camera";
 import {Crop} from "@ionic-native/crop";
+import {Base64} from "@ionic-native/base64";
 /**
  * Generated class for the UsersettingsPage page.
  *
@@ -28,7 +29,8 @@ export class UsersettingsPage {
               public userServiceProvider: UserServiceProvider,
               public storage: Storage,
               public camera: Camera,
-              public crop: Crop) {
+              public crop: Crop,
+              public base: Base64) {
     this.storage.get('Authorization').then((res) => {
       this.userServiceProvider.getUserProfilePicture(res)
         .subscribe(data => {
@@ -56,16 +58,17 @@ export class UsersettingsPage {
       targetHeight: 400
     };
 
+    // oei
     return this.camera.getPicture(cameraOptions)
       .then((fileUri) => {
       //this.profilePic = 'data:image/jpeg;base64,' + imageData;
       fileUri = 'file://' + fileUri;
       return this.crop.crop(fileUri, {quality: 100, targetWidth: 300, targetHeight: 300});
-
       })
       .then((path) => {
         console.log('Cropped Image Path: ' + path);
         this.profilePic = path;
+
         this.storage.get('Authorization')
           .then( (res) => {
             this.userServiceProvider.postUserProfilePicture(res, this.profilePic)

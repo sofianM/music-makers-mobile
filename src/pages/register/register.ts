@@ -29,6 +29,8 @@ export class RegisterPage {
               private alertCtrl: AlertController,
               private registerServiceProvider: RegisterServiceProvider) {
     this.birthday = new Date().toDateString();
+
+    // Disable sidemenus (unneeded for register)
     this.menuCtrl.enable(false, 'leftSideMenu');
     this.menuCtrl.enable(false, 'rightSideMenu');
   }

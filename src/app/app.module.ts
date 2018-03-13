@@ -22,10 +22,13 @@ import {UsersettingsPage} from "../pages/usersettings/usersettings";
 import {CLessonComponent} from "../components/c-lesson/c-lesson";
 import {CConcertComponent} from "../components/c-concert/c-concert";
 import {CRehearsalComponent} from "../components/c-rehearsal/c-rehearsal";
+import {CGroupComponent} from "../components/c-group/c-group";
+import {GroupServiceProvider} from "../providers/group-service/group-service";
 import { UserServiceProvider } from '../providers/user-service/user-service';
 import {Camera} from "@ionic-native/camera";
 import {Crop} from "@ionic-native/crop";
 import {AlphaTabPage} from "../pages/alpha-tab/alpha-tab";
+import {Base64} from "@ionic-native/base64";
 
 @NgModule({
   declarations: [
@@ -38,6 +41,9 @@ import {AlphaTabPage} from "../pages/alpha-tab/alpha-tab";
     AgendaPage,
     LessondetailsPage,
     UsersettingsPage,
+    CLessonComponent,
+    CRehearsalComponent,
+    CGroupComponent,
     CLessonComponent,
     CRehearsalComponent,
     CConcertComponent,
@@ -60,7 +66,8 @@ import {AlphaTabPage} from "../pages/alpha-tab/alpha-tab";
     AgendaPage,
     LessondetailsPage,
     UsersettingsPage,
-    AlphaTabPage
+    AlphaTabPage,
+    UsersettingsPage
   ],
   providers: [
     StatusBar,
@@ -70,9 +77,11 @@ import {AlphaTabPage} from "../pages/alpha-tab/alpha-tab";
     DatePicker,
     LessonServiceProvider,
     RegisterServiceProvider,
+    GroupServiceProvider,
     UserServiceProvider,
     Camera,
-    Crop
+    Crop,
+    Base64
   ]
 })
 export class AppModule {
