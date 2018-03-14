@@ -1,5 +1,5 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {UserServiceProvider} from "../../providers/user-service/user-service";
 import {Storage} from "@ionic/storage";
 import {Camera, CameraOptions} from "@ionic-native/camera";
@@ -19,20 +19,25 @@ import {ChangepasswordPage} from "../changepassword/changepassword";
   templateUrl: 'usersettings.html',
 })
 export class UsersettingsPage {
-  firstName: string;
-  lastName: string;
+  currentFirstName: string;
+  currentLastName: string;
   model: any = {};
   public profilePic = 'assets/imgs/profile-picture-placeholder.png';
 
   @ViewChild('imageSrc') input: ElementRef;
 
   constructor(public navCtrl: NavController,
+              public loadingCtrl: LoadingController,
               public navParams: NavParams,
               public userServiceProvider: UserServiceProvider,
               public storage: Storage,
               public camera: Camera,
               public crop: Crop,
               public base: Base64) {
+    let loading = this.loadingCtrl.create({
+      content: 'Loading user info...'
+    });
+    loading.present();
     this.getToken().then((token) => {
       this.userServiceProvider.getUserProfilePicture(token)
         .subscribe(data => {
@@ -49,19 +54,22 @@ export class UsersettingsPage {
           });
       this.userServiceProvider.getUserInfo(token)
         .subscribe(user => {
-          this.firstName = (<any>user.valueOf()).firstName;
-          this.lastName = (<any>user.valueOf()).lastName;
-        })
+          this.currentFirstName = (<any>user.valueOf()).firstName;
+          this.currentLastName = (<any>user.valueOf()).lastName;
+
+        },
+          error => console.log('GetUserInfoError: ', error),
+          () => loading.dismiss())
     });
   }
 
-  changeName(firstName: string, lastName: string) {
+  changeName() {
     this.getToken().then(token => {
-      this.userServiceProvider.changeFirstName(token, firstName)
+      this.userServiceProvider.changeFirstName(token, this.model.firstName)
         .subscribe(updatedUser => console.log('Updating user'),
           error => console.log('ChangeFirstNameError: ', error),
           () => console.log('Change firstName completed'));
-      this.userServiceProvider.changeLastName(token, lastName)
+      this.userServiceProvider.changeLastName(token, this.model.lastName)
         .subscribe(updatedUser => console.log('Updating user'),
           error => console.log('ChangeLastNameError: ', error),
           () => console.log('Change lastName completed'));

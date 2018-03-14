@@ -13,7 +13,6 @@ import {GroupsPage} from "../pages/groups/groups";
 import {Storage} from "@ionic/storage";
 import {LessondetailsPage} from "../pages/lessondetails/lessondetails";
 import {UsersettingsPage} from "../pages/usersettings/usersettings";
-import {AlphaTabPage} from "../pages/alpha-tab/alpha-tab";
 
 @Component({
   templateUrl: 'app.html'

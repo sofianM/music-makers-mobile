@@ -16,7 +16,6 @@ import {LibraryPage} from "../pages/library/library";
 import {GroupsPage} from "../pages/groups/groups";
 import {AgendaPage} from "../pages/agenda/agenda";
 import { LessonServiceProvider } from '../providers/lesson-service/lesson-service';
-import { RegisterServiceProvider } from '../providers/register-service/register-service';
 import {LessondetailsPage} from "../pages/lessondetails/lessondetails";
 import {UsersettingsPage} from "../pages/usersettings/usersettings";
 import {CLessonComponent} from "../components/c-lesson/c-lesson";
@@ -76,7 +75,6 @@ import {ChangepasswordPage} from "../pages/changepassword/changepassword";
     LoginServiceProvider,
     DatePicker,
     LessonServiceProvider,
-    RegisterServiceProvider,
     GroupServiceProvider,
     UserServiceProvider,
     Camera,

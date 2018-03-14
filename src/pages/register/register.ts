@@ -3,7 +3,7 @@ import {IonicPage, MenuController, NavController, NavParams} from 'ionic-angular
 import {RegisterUser} from "../../model/registerUser";
 import {HttpClient} from "@angular/common/http";
 import { AlertController } from 'ionic-angular';
-import {RegisterServiceProvider} from "../../providers/register-service/register-service";
+//oei
 import {UserServiceProvider} from "../../providers/user-service/user-service";
 
 /**
