@@ -1,5 +1,5 @@
 <!--
-  Generated template for the RepititiondetailsPage page.
+  Generated template for the RepetitiondetailsPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,23 +7,25 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>repititiondetails</ion-title>
+    <ion-title>My upcoming repetitions</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <table *ngFor="let r of repitition.calendarRepititionDTOS">
+  <div *ngFor="let r of repetition.calendarRepetitionDTOS">
+  <table>
     <tr>
-      <th colspan="2" class="title">{{r.repetitionInfo}}</th>
+      <th colspan="2" class="title">Repetitie info: </th>
+      <td>{{r.repetitionInfo}}</td>
     </tr>
     <tr>
-      <th colspan="2" class="title">{{capitalize(r.date)}}</th>
-    </tr>
+      <th colspan="2" class="title">Datum: </th>
+      <td>{{r.date}}</td>    </tr>
     <tr>
       <th>Start:</th>
-      <td>{{r.startTIme}}</td>
+      <td>{{r.startTime}}</td>
     </tr>
     <tr>
       <th>Einde:</th>
@@ -36,9 +38,11 @@
       <ion-label>Absent</ion-label>
       <ion-toggle [(ngModel)]="absent" (ionChange)="setAbsent()"></ion-toggle>
     </ion-item>
+    <ion-item>
+      <button (click)="setAbsent"></button>
+    </ion-item>
+    </div>
   </div>
 
-  <ion-item>
-    <button (click)="setAbsent"></button>
-  </ion-item>
+
 </ion-content>

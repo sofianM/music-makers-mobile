@@ -9,12 +9,12 @@ export class GroupDTO {
 export class StudentRepetitionDTO{
   id: number;
   repetitioninfo: String;
-  calendarRepititionDTOS: CalendarRepititionDTO[]
+  calendarRepetitionDTOS: CalendarRepetitionDTO[]
 }
-export class CalendarRepititionDTO{
+export class CalendarRepetitionDTO{
   id: number;
   date: String;
-  startTIme: String;
+  startTime: String;
   endTime: String;
   repetitionInfo: String;
 }
