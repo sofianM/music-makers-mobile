@@ -13,8 +13,33 @@ export class StudentRepetitionDTO{
 }
 export class CalendarRepetitionDTO{
   id: number;
-  date: String;
-  startTime: String;
-  endTime: String;
-  repetitionInfo: String;
+  date: CalendarRepetitionDate;
+  startTime: CalendarRepetitionTime;
+  endTime: CalendarRepetitionTime;
+  repetitioninfo: String;
+}
+
+export class CalendarRepetitionDate {
+  year: number;
+  month: string;
+  monthValue: number;
+  dayOfMonth: number;
+  dayOfWeek: string;
+  dayOfYear: number;
+  leapYear: boolean;
+  era: string;
+  chronology: CalendarRepetitionDateChronology;
+
+}
+
+export class CalendarRepetitionDateChronology {
+  calendarType: string;
+  id: string;
+}
+
+export class CalendarRepetitionTime {
+  hour: Number;
+  minute: Number;
+  second: Number;
+  nano: Number;
 }
