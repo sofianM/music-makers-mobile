@@ -18,7 +18,6 @@ export class LessondetailsPage {
   absent: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    console.log("Test new branch");
 
   }
 
@@ -28,7 +27,6 @@ export class LessondetailsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LessondetailsPage');
-    //& dsqffsdfqd?
   }
 
 
