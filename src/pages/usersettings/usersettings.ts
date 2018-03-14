@@ -5,6 +5,7 @@ import {Storage} from "@ionic/storage";
 import {Camera, CameraOptions} from "@ionic-native/camera";
 import {Crop} from "@ionic-native/crop";
 import {Base64} from "@ionic-native/base64";
+import {ChangepasswordPage} from "../changepassword/changepassword";
 /**
  * Generated class for the UsersettingsPage page.
  *
@@ -20,6 +21,7 @@ import {Base64} from "@ionic-native/base64";
 export class UsersettingsPage {
   firstName: string;
   lastName: string;
+  model: any = {};
   public profilePic = 'assets/imgs/profile-picture-placeholder.png';
 
   @ViewChild('imageSrc') input: ElementRef;
@@ -31,8 +33,8 @@ export class UsersettingsPage {
               public camera: Camera,
               public crop: Crop,
               public base: Base64) {
-    this.storage.get('Authorization').then((res) => {
-      this.userServiceProvider.getUserProfilePicture(res)
+    this.getToken().then((token) => {
+      this.userServiceProvider.getUserProfilePicture(token)
         .subscribe(data => {
             if (data != null) {
               console.log('Pic: ' + (<any>data.valueOf()).pic);
@@ -40,12 +42,30 @@ export class UsersettingsPage {
             }
           },
           error => {
-            console.log('Error: ', error);
+            console.log('Error constructor: ', error);
           },
           () => {
-            console.log('Completed');
+            console.log('Completed constructor');
           });
+      this.userServiceProvider.getUserInfo(token)
+        .subscribe(user => {
+          this.firstName = (<any>user.valueOf()).firstName;
+          this.lastName = (<any>user.valueOf()).lastName;
+        })
     });
+  }
+
+  changeName(firstName: string, lastName: string) {
+    this.getToken().then(token => {
+      this.userServiceProvider.changeFirstName(token, firstName)
+        .subscribe(updatedUser => console.log('Updating user'),
+          error => console.log('ChangeFirstNameError: ', error),
+          () => console.log('Change firstName completed'));
+      this.userServiceProvider.changeLastName(token, lastName)
+        .subscribe(updatedUser => console.log('Updating user'),
+          error => console.log('ChangeLastNameError: ', error),
+          () => console.log('Change lastName completed'));
+    })
   }
 
   takePicture(): Promise<any> {
@@ -58,17 +78,18 @@ export class UsersettingsPage {
       targetHeight: 400
     };
 
-    // oei
+    /*
     return this.camera.getPicture(cameraOptions)
       .then((fileUri) => {
-      //this.profilePic = 'data:image/jpeg;base64,' + imageData;
       fileUri = 'file://' + fileUri;
       return this.crop.crop(fileUri, {quality: 100, targetWidth: 300, targetHeight: 300});
       })
       .then((path) => {
         console.log('Cropped Image Path: ' + path);
         this.profilePic = path;
+        this.base.encodeFile(this.profilePic).then((baseres) => {
 
+        });
         this.storage.get('Authorization')
           .then( (res) => {
             this.userServiceProvider.postUserProfilePicture(res, this.profilePic)
@@ -76,17 +97,51 @@ export class UsersettingsPage {
                 error => console.log('Error: ', error),
                 () => console.log('Completed'))
           });
-
         return path;
     })
+    */
 
+    return this.camera.getPicture(cameraOptions)
+      .then((fileUri) => {
+        return this.cropPicture(fileUri)
+          .then((croppedImgPath) => {
+            this.toBase64(croppedImgPath)
+              .then((base64img) => {
+                this.setProfilePic(base64img);
+                this.getToken()
+                  .then((token) => {
+                    this.userServiceProvider.postUserProfilePicture(token, base64img)
+                      .subscribe(() => console.log('Next OK'),
+                        error => console.log('PostPictureError: ', error),
+                        () => console.log('Compeleted'))
+                  })
+              })
+          })
+      })
+  }
+
+  cropPicture(fileUri: string): Promise<any> {
+    return this.crop.crop('file://'+fileUri, {quality: 100, targetWidth: 300, targetHeight: 300});
+  }
+
+  toBase64(path: string): Promise<any> {
+    return this.base.encodeFile(path);
+  }
+
+  setProfilePic(img: string) {
+    this.profilePic = img;
+  }
+
+  getToken(): Promise<any> {
+    return this.storage.get('Authorization');
+  }
+
+  goToChangePasswordPage() {
+    this.navCtrl.push(ChangepasswordPage);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UsersettingsPage');
 
   }
-
-
-
 }

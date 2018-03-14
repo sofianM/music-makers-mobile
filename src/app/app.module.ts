@@ -29,6 +29,7 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
 import {Camera} from "@ionic-native/camera";
 import {Crop} from "@ionic-native/crop";
 import {Base64} from "@ionic-native/base64";
+import {ChangepasswordPage} from "../pages/changepassword/changepassword";
 
 @NgModule({
   declarations: [
@@ -41,10 +42,10 @@ import {Base64} from "@ionic-native/base64";
     AgendaPage,
     LessondetailsPage,
     UsersettingsPage,
+    ChangepasswordPage,
     CLessonComponent,
     CRehearsalComponent,
     CGroupComponent,
-    // CAgendaComponent,
     CLessonComponent,
     CRehearsalComponent,
     CConcertComponent
@@ -65,7 +66,8 @@ import {Base64} from "@ionic-native/base64";
     GroupsPage,
     AgendaPage,
     LessondetailsPage,
-    UsersettingsPage
+    UsersettingsPage,
+    ChangepasswordPage
   ],
   providers: [
     StatusBar,

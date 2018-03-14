@@ -11,12 +11,9 @@ const options = {
 export class RegisterServiceProvider {
   private registerUrl = 'https://music-makers.herokuapp.com/user/register';
 
-  constructor(public http: HttpClient) {
-    console.log('Hello RegisterServiceProvider Provider');
-  }
+  constructor(public http: HttpClient) {}
 
   public register(registerUser: RegisterUser): Observable<any> {
     return this.http.post(this.registerUrl, registerUser, options);
   }
-
 }
