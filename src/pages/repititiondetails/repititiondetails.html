@@ -14,5 +14,31 @@
 
 
 <ion-content padding>
+  <table *ngFor="let r of repitition.calendarRepititionDTOS">
+    <tr>
+      <th colspan="2" class="title">{{r.repetitionInfo}}</th>
+    </tr>
+    <tr>
+      <th colspan="2" class="title">{{capitalize(r.date)}}</th>
+    </tr>
+    <tr>
+      <th>Start:</th>
+      <td>{{r.startTIme}}</td>
+    </tr>
+    <tr>
+      <th>Einde:</th>
+      <td>{{r.endTime}}</td>
+    </tr>
+    <tr>
+  </table>
+  <div class="absent">
+    <ion-item>
+      <ion-label>Absent</ion-label>
+      <ion-toggle [(ngModel)]="absent" (ionChange)="setAbsent()"></ion-toggle>
+    </ion-item>
+  </div>
 
+  <ion-item>
+    <button (click)="setAbsent"></button>
+  </ion-item>
 </ion-content>
