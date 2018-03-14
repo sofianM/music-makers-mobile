@@ -4,6 +4,7 @@ import {RegisterUser} from "../../model/registerUser";
 import {HttpClient} from "@angular/common/http";
 import { AlertController } from 'ionic-angular';
 import {RegisterServiceProvider} from "../../providers/register-service/register-service";
+import {UserServiceProvider} from "../../providers/user-service/user-service";
 
 /**
  * Generated class for the RegisterPage page.
@@ -27,7 +28,7 @@ export class RegisterPage {
               public navParams: NavParams,
               public http: HttpClient,
               private alertCtrl: AlertController,
-              private registerServiceProvider: RegisterServiceProvider) {
+              private userServiceProvider: UserServiceProvider) {
     this.birthday = new Date().toDateString();
 
     // Disable sidemenus (unneeded for register)
@@ -53,7 +54,7 @@ export class RegisterPage {
 
     this.checkPassword();
     if(this.equalPassword){
-      this.registerServiceProvider.register(registerUser)
+      this.userServiceProvider.register(registerUser)
         .subscribe(() => {
             console.log("succes eindelijk gvd!");
           },
