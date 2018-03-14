@@ -18,7 +18,18 @@ export class LessondetailsPage {
   absent: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    console.log(this.oneA(this.lesson.startTime.minute));
+  }
 
+  oneA(input) {
+    var stringValue = String(input);
+    var stringLength = stringValue.length;
+    if(stringLength == 1) {
+      var zero = "0";
+      return zero.concat(stringValue);
+    } else {
+      return input;
+    }
   }
 
   capitalize(input) {
