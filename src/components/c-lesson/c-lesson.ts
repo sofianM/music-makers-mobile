@@ -1,7 +1,7 @@
 import {Component, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {LessondetailsPage} from "../../pages/lessondetails/lessondetails";
 import {LessonServiceProvider} from "../../providers/lesson-service/lesson-service";
-import {CalendarLessonDTO} from "../../model/calendarLesson";
+import {CalendarLessonDTO, LessonCalendarDictionary, SingleCalenderLesson} from "../../model/calendarLesson";
 import {Storage} from "@ionic/storage";
 import {NavController} from "ionic-angular";
 
@@ -17,10 +17,10 @@ import {NavController} from "ionic-angular";
 })
 export class CLessonComponent implements OnInit{
 
-  public lessons: CalendarLessonDTO[];
+  public lessons: LessonCalendarDictionary;
   accordionExapanded = false;
   @ViewChild("cc") cardContent: any;
-
+  public arr = [];
 
   icon: string = "arrow-forward";
 
@@ -28,11 +28,10 @@ export class CLessonComponent implements OnInit{
     this.storage.get('Authorization').then((res) => {
       this.lessonServiceProvider.getLessons(res)
         .subscribe( res => {
-          this.lessons = res;
-          console.log('Inside subscribe: ', res);
-          for (let lesson of this.lessons) {
-            console.log('Lesson ' + lesson.id + ': ' + lesson.name);
-          }
+          this.sortLesson(res);
+          console.log("Length:");
+          let a = this.lessons.getKeys()[0];
+          console.log(this.lessons.getKeys().length);
         });
     });
   }
@@ -42,8 +41,19 @@ export class CLessonComponent implements OnInit{
     this.renderer.setStyle(this.cardContent.nativeElement, "webkitTransition", "max-height 500ms, padding 500ms");
   }
 
-  goToDetails(l: CalendarLessonDTO) {
-    this.navCtrl.push(LessondetailsPage, {lesson: l});
+  private sortLesson(lessons: CalendarLessonDTO[]) {
+    const dict: LessonCalendarDictionary = new LessonCalendarDictionary();
+    for(const lesson of lessons) {
+      for(const date of lesson.startDates) {
+        const c: SingleCalenderLesson = new SingleCalenderLesson(lesson);
+        dict.put(date, c);
+      }
+    }
+    this.lessons = dict;
+  }
+
+  goToDetails(k: LessonCalendarDictionary, l: CalendarLessonDTO[]) {
+    this.navCtrl.push(LessondetailsPage, {lessonDate: k, lesson: l});
   }
 
   toggleAccordion() {

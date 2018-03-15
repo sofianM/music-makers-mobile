@@ -43,7 +43,7 @@ export class CRehearsalComponent implements OnInit{
   }
 
   goToDetails(l: CalendarLessonDTO) {
-    // this.navCtrl.push(LessondetailsPage, {lesson: l});
+    // this.navCtrl.push(LessondetailsPage, {lesson: k});
     console.log("push reharsel");
   }
 

@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {HttpClient} from "@angular/common/http";
 import {Storage} from "@ionic/storage";
+// import * as a from "../../assets/test.js"
+
 
 /**
  * Generated class for the AgendaPage page.
@@ -20,6 +22,7 @@ export class AgendaPage {
   constructor(public navCtrl: NavController,
               public http: HttpClient,
               public storage: Storage) {
+    // console.log(a.myFunction(2, 2));
   }
 
   ionViewDidLoad() {
