@@ -14,6 +14,7 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
   templateUrl: 'lessondetails.html',
 })
 export class LessondetailsPage {
+  public lessonDate = this.navParams.get("lessonDate");
   public lesson = this.navParams.get("lesson");
   absent: boolean = false;
 
