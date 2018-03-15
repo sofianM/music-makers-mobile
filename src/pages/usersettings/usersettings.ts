@@ -76,7 +76,7 @@ export class UsersettingsPage {
     })
   }
 
-  takePicture(): Promise<any> {
+  takePicture() {
     const cameraOptions: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
@@ -109,9 +109,9 @@ export class UsersettingsPage {
     })
     */
 
-    return this.camera.getPicture(cameraOptions)
+    this.camera.getPicture(cameraOptions)
       .then((fileUri) => {
-        return this.cropPicture(fileUri)
+        this.cropPicture(fileUri)
           .then((croppedImgPath) => {
             this.toBase64(croppedImgPath)
               .then((base64img) => {
