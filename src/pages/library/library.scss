@@ -1,3 +1,18 @@
 page-library {
 
 }
+
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.img-text {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.6);
+}
