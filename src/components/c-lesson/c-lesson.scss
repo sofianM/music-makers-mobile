@@ -9,8 +9,18 @@ c-lesson {
   }
   button{
   }
+  ion-label{
+    text-align: center;
+  }
+  button {
 
+  }
+  .centerThis {
+    margin-left: 36%;
+  }
   .lesson {
     display: block;
+    //margin-left: 0%;
+    border-top:solid grey;
   }
 }

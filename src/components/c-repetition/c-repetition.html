@@ -11,9 +11,9 @@
     </ion-list>
   </ion-card-header>
   <ion-card-content #cc>
-    <div>
+    <div >
     <button
-      ion-button clear small icon-only *ngFor="let r of repetitions" class="lesson" (click)="goToRepetitionCalendar(r)">
+      ion-button clear small icon-only *ngFor="let r of repetitions" class="lesson" (click)="goToRepetitionCalendar(r)" class="centerThis">
       {{r.repetitioninfo}}
     </button>
     </div>

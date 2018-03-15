@@ -18,6 +18,7 @@ export class RepetitiondetailsPage {
   absent: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
   }
 
   ionViewDidLoad() {
