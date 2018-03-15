@@ -24,8 +24,8 @@ export class RepetitiondetailsPage {
     console.log('ionViewDidLoad RepetitiondetailsPage');
   }
   setAbsent() {
-    console.log(this.absent);
     this.absent = !this.absent;
+    console.log(this.absent);
   }
   oneA(input) {
     var stringValue = String(input);
