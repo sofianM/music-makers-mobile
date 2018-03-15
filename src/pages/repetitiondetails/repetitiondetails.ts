@@ -26,5 +26,15 @@ export class RepetitiondetailsPage {
   setAbsent() {
     console.log(this.absent);
   }
+  oneA(input) {
+    var stringValue = String(input);
+    var stringLength = stringValue.length;
+    if(stringLength == 1) {
+      var zero = "0";
+      return zero.concat(stringValue);
+    } else {
+      return input;
+    }
+  }
 
 }

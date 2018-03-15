@@ -17,20 +17,20 @@
   <div *ngFor="let r of repetition.calendarRepetitionDTOS">
   <table>
     <tr>
-      <th colspan="2" class="title">Repetitie info: </th>
+      <th>Repetitie info: </th>
       <td>{{r.repetitioninfo}}</td>
     </tr>
     <tr>
-      <th colspan="2" class="title">Datum: </th>
+      <th>Datum: </th>
       <td>{{r.date.dayOfMonth}}/{{r.date.monthValue}}/{{r.date.year}}</td>
     </tr>
     <tr>
       <th>Start:</th>
-      <td>{{r.startTime.hour}}:{{r.startTime.minute}}</td>
+      <td>{{r.startTime.hour}}:{{oneA(r.startTime.minute)}}</td>
     </tr>
     <tr>
       <th>Einde:</th>
-      <td>{{r.endTime.hour}}:{{r.endTime.minute}}</td>
+      <td>{{r.endTime.hour}}:{{oneA(r.endTime.minute)}}</td>
     </tr>
     <tr>
   </table>
