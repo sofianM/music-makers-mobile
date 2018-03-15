@@ -1,6 +1,10 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
+import 'rxjs/add/observable/fromPromise';
+import 'rxjs/add/operator/mergeMap';
+
+import {Storage} from "@ionic/storage";
 import {GroupUserDTO} from "../../model/groupUser";
 import {CalendarLessonDTO} from "../../model/calendarLesson";
 import {GroupDTO, StudentRepetitionDTO} from "../../model/group";
@@ -8,12 +12,14 @@ import {GroupDTO, StudentRepetitionDTO} from "../../model/group";
 @Injectable()
 export class GroupServiceProvider{
   private getStudentsOfGroupUrl = 'https://music-makers.herokuapp.com/groups/';
-  private getGroupsUrl = 'https://music-makers.herokuapp.com/groups/getGroups';
+  private getGroupsAsTeacher = 'https://music-makers.herokuapp.com/groups/getGroupsAsTeacher';
+  private getGroupsAsStudent = 'https://music-makers.herokuapp.com/groups/getGroupsAsStudent';
+
   private getRepetitionsUrl = 'https://music-makers.herokuapp.com/groups/getRepetitions';
+  private roles: string;
 
 
-
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private storage: Storage) {
   }
 
   public getStudentsOfGroup(id: number) : Observable<any> {
@@ -37,8 +43,29 @@ export class GroupServiceProvider{
     };
 
     // GET
-    return this.http.get(this.getGroupsUrl, httpOptions)
-      .map(res => res as GroupDTO[]);
+    return this.getRoles().mergeMap(roles => {
+      if (this.isStudent(roles)){
+        return this.http.get(this.getGroupsAsStudent, httpOptions)
+          .map(res => res as GroupDTO[]);
+      } else {
+        return this.http.get(this.getGroupsAsTeacher, httpOptions)
+          .map(res => res as GroupDTO[]);
+      }
+    })
+
+
+    /*
+    this.checkIfStudent();
+    if (!this.isStudent){
+      return this.http.get(this.getGroupsAsTeacher, httpOptions)
+        .map(res => res as GroupDTO[]);
+    }
+    else{
+      return this.http.get(this.getGroupsAsStudent, httpOptions)
+        .map(res => res as GroupDTO[]);
+    }
+    */
+
   }
 
   public getRepetitions(token: string): Observable<any>{
@@ -53,6 +80,14 @@ export class GroupServiceProvider{
     // GET
     return this.http.get(this.getRepetitionsUrl, httpOptions)
       .map(res => res as StudentRepetitionDTO[]);
+  }
+
+  private getRoles(): Observable<any> {
+    return Observable.fromPromise(this.storage.get('Roles'));
+  }
+
+  private isStudent(roles: string): boolean {
+    return (roles.indexOf('ROLE_STUDENT') >= 0);
   }
 
 }
