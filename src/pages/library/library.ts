@@ -22,4 +22,16 @@ export class LibraryPage {
     console.log('ionViewDidLoad LibraryPage');
   }
 
+  goToInstruments() {
+
+  }
+
+  goToMusicSheets() {
+
+  }
+
+  goToChords() {
+
+  }
+
 }

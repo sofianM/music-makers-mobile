@@ -45,7 +45,7 @@ export class LoginPage {
     this.loginServiceProvider.login(user)
       .subscribe(data => {
         this.storage.set('Authorization', (<any>data.valueOf()).authorization);
-        this.storage.set('Role', (<any>data.valueOf()).roles[0]);
+        this.storage.set('Roles', (<any>data.valueOf()).roles);
       }, error => {
         console.log("error: ", error);
         this.errorVisible = true;
