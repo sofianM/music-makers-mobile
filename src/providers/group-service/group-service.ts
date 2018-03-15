@@ -53,19 +53,6 @@ export class GroupServiceProvider{
       }
     })
 
-
-    /*
-    this.checkIfStudent();
-    if (!this.isStudent){
-      return this.http.get(this.getGroupsAsTeacher, httpOptions)
-        .map(res => res as GroupDTO[]);
-    }
-    else{
-      return this.http.get(this.getGroupsAsStudent, httpOptions)
-        .map(res => res as GroupDTO[]);
-    }
-    */
-
   }
 
   public getRepetitions(token: string): Observable<any>{
