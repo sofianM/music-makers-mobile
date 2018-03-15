@@ -25,6 +25,7 @@ export class RepetitiondetailsPage {
   }
   setAbsent() {
     console.log(this.absent);
+    this.absent = !this.absent;
   }
   oneA(input) {
     var stringValue = String(input);
