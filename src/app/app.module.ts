@@ -28,6 +28,7 @@ import {Camera} from "@ionic-native/camera";
 import {Crop} from "@ionic-native/crop";
 import {Base64} from "@ionic-native/base64";
 import {ChangepasswordPage} from "../pages/changepassword/changepassword";
+import {AlphaTabPage} from "../pages/alpha-tab/alpha-tab";
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import {ChangepasswordPage} from "../pages/changepassword/changepassword";
     CLessonComponent,
     CRehearsalComponent,
     CConcertComponent,
+    AlphaTabPage
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,8 @@ import {ChangepasswordPage} from "../pages/changepassword/changepassword";
     LessondetailsPage,
     UsersettingsPage,
     ChangepasswordPage,
-    UsersettingsPage
+    UsersettingsPage,
+    AlphaTabPage
   ],
   providers: [
     StatusBar,
