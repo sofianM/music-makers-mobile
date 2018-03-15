@@ -1,54 +1,48 @@
 import {Component, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {Storage} from "@ionic/storage";
-import {LessonServiceProvider} from "../../providers/lesson-service/lesson-service";
+import {StudentRepetitionDTO} from "../../model/group";
 import {NavController} from "ionic-angular";
 import {GroupServiceProvider} from "../../providers/group-service/group-service";
-import {CalendarLessonDTO} from "../../model/calendarLesson";
-import {GroupUserDTO} from "../../model/groupUser";
-import {GroupDTO} from "../../model/group";
-import {LessondetailsPage} from "../../pages/lessondetails/lessondetails";
-import {GroupsPage} from "../../pages/groups/groups";
-import {GroupdetailsPage} from "../../pages/groupdetails/groupdetails";
+import {RepetitiondetailsPage} from "../../pages/repetitiondetails/repetitiondetails";
 
 /**
- * Generated class for the CGroupComponent component.
+ * Generated class for the CRepetitionComponent component.
  *
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
 @Component({
-  selector: 'c-group',
-  templateUrl: 'c-group.html'
+  selector: 'c-repetition',
+  templateUrl: 'c-repetition.html'
 })
-export class CGroupComponent implements OnInit{
-  public groups: GroupDTO[];
-  accordionExapanded = false;
-  @ViewChild("cc") cardContent: any;
-
+export class CRepetitionComponent implements OnInit{
+  public repetitions: StudentRepetitionDTO[];
+  accordionExpanded = false;
+  @ViewChild('cc') cardContent: any;
   icon: string = "arrow-forward";
 
 
+
+  text: string;
+
   constructor(public navCtrl: NavController,public renderer: Renderer2, public storage: Storage,public groupServiceProvider: GroupServiceProvider,) {
     this.storage.get('Authorization').then((res) => {
-      this.groupServiceProvider.getGroups(res)
+      this.groupServiceProvider.getRepetitions(res)
         .subscribe( res => {
-          this.groups = res;
-          console.log('Inside subscribe');
-          for (let group of this.groups) {
-            console.log('Group ' + group.name + ' under teacher: ' + group.teacherEmail);
+          this.repetitions = res;
+          console.log('Inside subscribe: ', res);
+          for (let repetition of this.repetitions) {
+            console.log('Repetition ' + repetition.id + ': ' + repetition.repetitioninfo);
           }
         });
     });
   }
-  ngOnInit() : void{
+  ngOnInit(): void {
     console.log(this.cardContent.nativeElement);
     this.renderer.setStyle(this.cardContent.nativeElement, "webkitTransition", "max-height 500ms, padding 500ms");
   }
-  goToStudents(g: GroupDTO) {
-    this.navCtrl.push(GroupdetailsPage, {group: g});
-  }
   toggleAccordion() {
-    if (this.accordionExapanded) {
+    if (this.accordionExpanded) {
       this.renderer.setStyle(this.cardContent.nativeElement, "max-height", "0px");
       this.renderer.setStyle(this.cardContent.nativeElement, "padding", "0px 16px");
 
@@ -57,8 +51,11 @@ export class CGroupComponent implements OnInit{
       this.renderer.setStyle(this.cardContent.nativeElement, "padding", "13px 16px");
 
     }
-    this.accordionExapanded = !this.accordionExapanded;
+    this.accordionExpanded = !this.accordionExpanded;
     this.icon = this.icon == "arrow-forward" ? "arrow-down" : "arrow-forward";
+  }
+  goToRepetitionCalendar(r: StudentRepetitionDTO) {
+    this.navCtrl.push(RepetitiondetailsPage, {repetition: r});
   }
 
 }
