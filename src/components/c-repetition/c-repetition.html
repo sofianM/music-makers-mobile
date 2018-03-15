@@ -1,3 +1,4 @@
+<!-- Generated template for the CRepetitionComponent component -->
 <ion-card>
   <ion-card-header (click)="toggleAccordion()">
     <ion-list>
@@ -5,14 +6,14 @@
         <button ion-button clear small icon-only item-right>
           <ion-icon color="light" [name]="icon"></ion-icon>
         </button>
-        Repetitie
+        Repitities
       </ion-item>
     </ion-list>
   </ion-card-header>
   <ion-card-content #cc>
     <button
-      ion-button clear small icon-only (click)="goToDetails(l)">
-      Toon repetitie
+      ion-button clear small icon-only *ngFor="let r of repetitions" class="lesson" (click)="goToRepetitionCalendar(r)">
+      {{r.repetitioninfo}}
     </button>
   </ion-card-content>
 </ion-card>

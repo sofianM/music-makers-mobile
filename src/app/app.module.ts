@@ -20,7 +20,6 @@ import {LessondetailsPage} from "../pages/lessondetails/lessondetails";
 import {UsersettingsPage} from "../pages/usersettings/usersettings";
 import {CLessonComponent} from "../components/c-lesson/c-lesson";
 import {CConcertComponent} from "../components/c-concert/c-concert";
-import {CRehearsalComponent} from "../components/c-rehearsal/c-rehearsal";
 import {CGroupComponent} from "../components/c-group/c-group";
 import {GroupServiceProvider} from "../providers/group-service/group-service";
 import { UserServiceProvider } from '../providers/user-service/user-service';
@@ -28,6 +27,9 @@ import {Camera} from "@ionic-native/camera";
 import {Crop} from "@ionic-native/crop";
 import {Base64} from "@ionic-native/base64";
 import {ChangepasswordPage} from "../pages/changepassword/changepassword";
+import {GroupdetailsPage} from "../pages/groupdetails/groupdetails";
+import {CRepetitionComponent} from "../components/c-repetition/c-repetition";
+import {RepetitiondetailsPage} from "../pages/repetitiondetails/repetitiondetails";
 
 @NgModule({
   declarations: [
@@ -41,12 +43,14 @@ import {ChangepasswordPage} from "../pages/changepassword/changepassword";
     LessondetailsPage,
     UsersettingsPage,
     ChangepasswordPage,
+    GroupdetailsPage,
+    RepetitiondetailsPage,
     CLessonComponent,
-    CRehearsalComponent,
     CGroupComponent,
     CLessonComponent,
-    CRehearsalComponent,
     CConcertComponent,
+    CConcertComponent,
+    CRepetitionComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,9 @@ import {ChangepasswordPage} from "../pages/changepassword/changepassword";
     LessondetailsPage,
     UsersettingsPage,
     ChangepasswordPage,
-    UsersettingsPage
+    UsersettingsPage,
+    GroupdetailsPage,
+    RepetitiondetailsPage
   ],
   providers: [
     StatusBar,

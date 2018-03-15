@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CLessonComponent } from './c-lesson/c-lesson';
 import { CConcertComponent } from './c-concert/c-concert';
-import { CRehearsalComponent } from './c-rehearsal/c-rehearsal';
 import { CGroupComponent } from './c-group/c-group';
+import { CRepetitionComponent } from './c-repetition/c-repetition';
 @NgModule({
 	declarations: [
     CLessonComponent,
     CConcertComponent,
-    CRehearsalComponent,
-    CGroupComponent],
+    CGroupComponent,
+    CRepetitionComponent],
 	imports: [],
 	exports: [
     CLessonComponent,
     CConcertComponent,
-    CRehearsalComponent,
-    CGroupComponent]
+    CGroupComponent,
+    CRepetitionComponent]
 })
 export class ComponentsModule {}

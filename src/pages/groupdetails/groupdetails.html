@@ -1,5 +1,5 @@
 <!--
-  Generated template for the AgendaPage page.
+  Generated template for the GroupdetailsPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,17 +7,16 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Agenda</ion-title>
+    <ion-title>groupdetails</ion-title>
   </ion-navbar>
 
 </ion-header>
 
+
 <ion-content padding>
-  <ion-list>
+  <div *ngFor="let s of group.students">
+    email: {{s.email}}  naam: {{s.firstName}} {{s.lastName}}
 
-    <c-lesson></c-lesson>
-    <c-repetition></c-repetition>
-    <c-concert></c-concert>
+  </div>
 
-  </ion-list>
 </ion-content>
