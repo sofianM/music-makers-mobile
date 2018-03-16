@@ -15,8 +15,8 @@
         {{k.dayOfMonth}}/{{k.monthValue}}/{{k.year}}
       </ion-label>
 
-      <div *ngFor="let l of lessons.get(k)">
-        <button  ion-button clear small icon-only (click)="goToDetails(k, l)" class="centerThis">
+      <div *ngFor="let l of lessons.get(k)" class="centerThis">
+        <button  ion-button clear small icon-only (click)="goToDetails(k, l)" >
           {{l.name}}
         </button>
       </div>

@@ -11,45 +11,48 @@
   </ion-navbar>
 
 </ion-header>
+<ion-content class="centerThis" padding>
+  <div class="centerThis">
+    <table>
+      <tr>
+        <th colspan="2" class="title">{{lesson.name}}</th>
+      </tr>
+      <tr>
+        <th colspan="2" class="title">{{capitalize(lessonDate.dayOfWeek)}} {{lessonDate.dayOfMonth}}
+          {{lessonDate.month.toLocaleLowerCase()}} {{lessonDate.year}}
+        </th>
+      </tr>
+      <tr>
+        <th>Start:</th>
+        <td>{{lesson.startTime.hour}}:{{oneA(lesson.startTime.minute)}}</td>
+      </tr>
+      <tr>
+        <th>Einde:</th>
+        <td>{{lesson.endTime.hour}}:{{oneA(lesson.endTime.minute)}}</td>
+      </tr>
+      <tr>
+        <th>Instrument:</th>
+        <td>{{lesson.instrumentName}}</td>
+      </tr>
+      <tr>
+        <th>Docent:</th>
+        <td>{{lesson.teacherName}}</td>
+      </tr>
+      <tr>
+        <th>Informatie:</th>
+        <td>{{lesson.description}}</td>
+      </tr>
+    </table>
+    <div class="absent">
+      <ion-item>
+        <ion-label>Absent</ion-label>
+        <ion-toggle [(ngModel)]="absent" (ionChange)="setAbsent()"></ion-toggle>
+      </ion-item>
+    </div>
 
-
-<ion-content padding>
-  <table>
-    <tr>
-      <th colspan="2" class="title">{{lesson.name}}</th>
-    </tr>
-    <tr>
-      <th colspan="2" class="title">{{capitalize(lessonDate.dayOfWeek)}} {{lessonDate.dayOfMonth}} {{lessonDate.month.toLocaleLowerCase()}} {{lessonDate.year}}</th>
-    </tr>
-    <tr>
-      <th>Start:</th>
-      <td>{{lesson.startTime.hour}}:{{oneA(lesson.startTime.minute)}}</td>
-    </tr>
-    <tr>
-      <th>Einde:</th>
-      <td>{{lesson.endTime.hour}}:{{oneA(lesson.endTime.minute)}}</td>
-    </tr>
-    <tr>
-      <th>Instrument:</th>
-      <td>{{lesson.instrumentName}}</td>
-    </tr>
-    <tr>
-      <th>Docent:</th>
-      <td>{{lesson.teacherName}}</td>
-    </tr>
-    <tr>
-      <th>Informatie:</th>
-      <td>{{lesson.description}}</td>
-    </tr>
-  </table>
-  <div class="absent">
     <ion-item>
-      <ion-label>Absent</ion-label>
-      <ion-toggle [(ngModel)]="absent" (ionChange)="setAbsent()"></ion-toggle>
+      <button (click)="setAbsent"></button>
     </ion-item>
   </div>
 
-  <ion-item>
-    <button (click)="setAbsent"></button>
-  </ion-item>
 </ion-content>

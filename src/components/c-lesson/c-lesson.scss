@@ -12,11 +12,9 @@ c-lesson {
   ion-label{
     text-align: center;
   }
-  button {
-
-  }
   .centerThis {
-    margin-left: 36%;
+    display: flex;
+    justify-content: center;
   }
   .lesson {
     display: block;
