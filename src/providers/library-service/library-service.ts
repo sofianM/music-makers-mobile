@@ -22,5 +22,4 @@ export class LibraryServiceProvider {
     };
     return this.http.get(this.getInstrumentsUrl, httpHeaders);
   }
-
 }

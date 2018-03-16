@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {ChangePassword} from "../../model/changepass";
 import {RegisterUser} from "../../model/registerUser";
+import {ProfilePic} from "../../model/profilepic";
 
 @Injectable()
 export class UserServiceProvider {
@@ -62,6 +63,9 @@ export class UserServiceProvider {
       headers: new HttpHeaders({'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': token})
     };
 
-    return this.http.post(this.userRequestUrl + '/profilePicture', pic, httpOptions);
+    const profilePic: ProfilePic = {
+      pic : pic
+    };
+    return this.http.post(this.userRequestUrl + '/profilePicture', profilePic, httpOptions);
   }
 }
