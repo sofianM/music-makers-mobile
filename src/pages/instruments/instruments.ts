@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Storage} from "@ionic/storage";
 
 /**
  * Generated class for the InstrumentsPage page.
@@ -15,11 +16,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class InstrumentsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public storage: Storage) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad InstrumentsPage');
+    this.getToken().then(token => {
+
+    })
+  }
+
+  getToken(): Promise<any> {
+    return this.storage.get('Authorization');
   }
 
 }

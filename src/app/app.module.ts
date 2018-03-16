@@ -31,6 +31,7 @@ import {GroupdetailsPage} from "../pages/groupdetails/groupdetails";
 import {CRepetitionComponent} from "../components/c-repetition/c-repetition";
 import {RepetitiondetailsPage} from "../pages/repetitiondetails/repetitiondetails";
 import {InstrumentsPage} from "../pages/instruments/instruments";
+import { LibraryServiceProvider } from '../providers/library-service/library-service';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import {InstrumentsPage} from "../pages/instruments/instruments";
     UserServiceProvider,
     Camera,
     Crop,
-    Base64
+    Base64,
+    LibraryServiceProvider
   ]
 })
 export class AppModule {
