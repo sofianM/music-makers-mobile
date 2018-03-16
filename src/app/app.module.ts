@@ -32,6 +32,7 @@ import {CRepetitionComponent} from "../components/c-repetition/c-repetition";
 import {RepetitiondetailsPage} from "../pages/repetitiondetails/repetitiondetails";
 import {InstrumentsPage} from "../pages/instruments/instruments";
 import { LibraryServiceProvider } from '../providers/library-service/library-service';
+import {AlphaTabPage} from "../pages/alpha-tab/alpha-tab";
 
 @NgModule({
   declarations: [
@@ -52,8 +53,8 @@ import { LibraryServiceProvider } from '../providers/library-service/library-ser
     CGroupComponent,
     CLessonComponent,
     CConcertComponent,
-    CConcertComponent,
-    CRepetitionComponent
+    CRepetitionComponent,
+    AlphaTabPage
   ],
   imports: [
     BrowserModule,
@@ -76,7 +77,9 @@ import { LibraryServiceProvider } from '../providers/library-service/library-ser
     UsersettingsPage,
     GroupdetailsPage,
     RepetitiondetailsPage,
-    InstrumentsPage
+    InstrumentsPage,
+    UsersettingsPage,
+    AlphaTabPage
   ],
   providers: [
     StatusBar,

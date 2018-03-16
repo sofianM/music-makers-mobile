@@ -3,6 +3,8 @@ var $StaticConstructor = function(f) {
     $StaticConstructors.push(f);
 };
 
+
+
 if (typeof ($Inherit) == 'undefined') {
 	var $Inherit = function (ce, ce2) {
 
@@ -31,7 +33,8 @@ if (typeof ($Inherit) == 'undefined') {
 		}
 
 	}
-}
+};
+
 if (typeof($CreateException)=='undefined')
 {
     var $CreateException = function(ex, error)
@@ -121,7 +124,8 @@ function $CombineDelegates(del1,del2)
         del.delegates.push(del2);
     }
     return del;
-}
+};
+
 function $CreateMulticastDelegateFunction()
 {
     var del2 = null;
@@ -140,7 +144,8 @@ function $CreateMulticastDelegateFunction()
     del2 = del;
 
     return del;
-}
+};
+
 function $RemoveDelegate(delOriginal,delToRemove)
 {
     if(delToRemove == null || delOriginal == null)
@@ -174,7 +179,9 @@ function $RemoveDelegate(delOriginal,delToRemove)
             return null;
         return delOriginal;
     }
-}
+};
+
+
 var AlphaTab = AlphaTab || {};
 AlphaTab.Environment = function (){
 };
@@ -190,13 +197,11 @@ AlphaTab.Environment.PlatformInit = function (){
     };
     // check whether webfont is loaded
     AlphaTab.Environment.CheckFontLoad();
-  Math.log2 = Math.log2 || function (x) {
-    return Math.log(x) * Math.LOG2E;
-  };
-  // try to build the find the alphaTab script url in case we are not in the webworker already
+     Math.log2 = Math.log2 || function(x) { return Math.log(x) * Math.LOG2E; };;
+    // try to build the find the alphaTab script url in case we are not in the webworker already
     if (self.document){
 
-        var vbAjaxLoader = String();
+        var vbAjaxLoader = new String();
         vbAjaxLoader+="<script type=\"text/vbscript\">"+'\r\n';
         vbAjaxLoader+="Function VbAjaxLoader(method, fileName)"+'\r\n';
         vbAjaxLoader+="    Dim xhr"+'\r\n';
@@ -398,7 +403,7 @@ AlphaTab.Importer.ScoreLoader.LoadScoreAsync = function (path, success, error){
         var vbArr = VbAjaxLoader("GET",path);
         var fileContents = vbArr.toArray();
         // decode byte array to string
-        var data = String();
+        var data = new String();
         var i = 0;
         while (i < (fileContents.length - 1)){
             data+=(fileContents[i]);
@@ -953,7 +958,7 @@ AlphaTab.Platform.JavaScript.JsApi.prototype = {
             styleElement = elementDocument.createElement("style");
             styleElement.id = "alphaTabStyle";
             styleElement.type = "text/css";
-            var css = String();
+            var css = new String();
             css+="@font-face {"+'\r\n';
             css+="    font-family: \'alphaTab\';"+'\r\n';
             css+="     src: url(\'" + fontDirectory + "Bravura.eot\');"+'\r\n';
@@ -1551,31 +1556,25 @@ AlphaTab.Platform.Std.ParseFloat = function (s){
     return parseFloat(s);
 };
 AlphaTab.Platform.Std.Log = function (logLevel, category, msg, details){
-  var stack = new Error().stack;
-  if (!stack) {
-    try {
-      throw new Error();
-    } catch (e) {
-      stack = e.stack;
-    }
-  }
-  // ReSharper disable once RedundantAssignment
+     var stack = new Error().stack;;
+     if(!stack) { try { throw new Error(); } catch(e) { stack = e.stack; } };
+    // ReSharper disable once RedundantAssignment
     msg = "[AlphaTab][" + category + "] " + msg;
     switch (logLevel){
         case AlphaTab.Util.LogLevel.None:
             break;
         case AlphaTab.Util.LogLevel.Debug:
-          console.debug(msg, details);
-          break;
+             console.debug(msg, details);;
+            break;
         case AlphaTab.Util.LogLevel.Info:
-          console.info(msg, details);
-          break;
+             console.info(msg, details);;
+            break;
         case AlphaTab.Util.LogLevel.Warning:
-          console.warn(msg, details);
-          break;
+             console.warn(msg, details);;
+            break;
         case AlphaTab.Util.LogLevel.Error:
-          console.error(msg, stack, details);
-          break;
+             console.error(msg, stack, details);;
+            break;
     }
 };
 AlphaTab.Platform.Std.ParseInt = function (s){
@@ -1600,7 +1599,7 @@ AlphaTab.Platform.Std.ReadSignedByte = function (readable){
     return n;
 };
 AlphaTab.Platform.Std.ToString = function (data){
-    var s = String();
+    var s = new String();
     var i = 0;
     while (i < data.length){
         var c = data[i++];
@@ -1662,7 +1661,7 @@ AlphaTab.Platform.Std.ToHexString = function (n, digits){
         s = String.fromCharCode(hexChars.charCodeAt((n & 15))) + s;
         n >>= 4;
     }
-    while (n > 0);
+    while (n > 0)
     while (s.length < digits){
         s = "0" + s;
     }
@@ -2039,7 +2038,7 @@ AlphaTab.Settings.AppendScriptName = function (url){
 };
 AlphaTab.Settings.EnsureFullUrl = function (relativeUrl){
     if (!relativeUrl.indexOf("http")==0 && !relativeUrl.indexOf("https")==0){
-        var root = String();
+        var root = new String();
         root+=window.location.protocol;
         root+="//";
         root+=window.location.hostname;
@@ -2771,7 +2770,7 @@ AlphaTab.Audio.Generator.MidiFileHandler.WriteVarInt = function (data, v){
         array[n++] = ((v & 127) & 255);
         v >>= 7;
     }
-    while (v > 0);
+    while (v > 0)
     while (n > 0){
         n--;
         if (n > 0)
@@ -2943,7 +2942,7 @@ AlphaTab.Audio.Model.MidiEvent.prototype = {
             array[n++] = ((value & 127) & 255);
             value >>= 7;
         }
-        while (value > 0);
+        while (value > 0)
         while (n > 0){
             n--;
             if (n > 0)
@@ -3273,7 +3272,7 @@ AlphaTab.Audio.Model.MidiTrack.prototype = {
 AlphaTab.Exporter = AlphaTab.Exporter || {};
 AlphaTab.Exporter.AlphaTexExporter = function (){
     this._builder = null;
-    this._builder = String();
+    this._builder = new String();
 };
 AlphaTab.Exporter.AlphaTexExporter.prototype = {
     Export: function (track){
@@ -3944,7 +3943,7 @@ AlphaTab.Importer.AlphaTexImporter.prototype = {
             else if (this._ch == 34 || this._ch == 39){
                 var startChar = this._ch;
                 this.NextChar();
-                var s = String();
+                var s = new String();
                 this._sy = AlphaTab.Importer.AlphaTexSymbols.String;
                 while (this._ch != startChar && this._ch != 0){
                     s+=String.fromCharCode(this._ch);
@@ -4031,21 +4030,21 @@ AlphaTab.Importer.AlphaTexImporter.prototype = {
         // allow - if negatives
     },
     ReadName: function (){
-        var str = String();
+        var str = new String();
         do{
             str+=String.fromCharCode(this._ch);
             this.NextChar();
         }
-        while (AlphaTab.Importer.AlphaTexImporter.IsLetter(this._ch) || this.IsDigit(this._ch) || this._ch == 35);
+        while (AlphaTab.Importer.AlphaTexImporter.IsLetter(this._ch) || this.IsDigit(this._ch) || this._ch == 35)
         return str;
     },
     ReadNumber: function (){
-        var str = String();
+        var str = new String();
         do{
             str+=String.fromCharCode(this._ch);
             this.NextChar();
         }
-        while (this.IsDigit(this._ch));
+        while (this.IsDigit(this._ch))
         return AlphaTab.Platform.Std.ParseInt(str);
     },
     Score: function (){
@@ -4176,7 +4175,7 @@ AlphaTab.Importer.AlphaTexImporter.prototype = {
                         tuning.push(t.get_RealValue());
                         this.NewSy();
                     }
-                        while (this._sy == AlphaTab.Importer.AlphaTexSymbols.Tuning);
+                        while (this._sy == AlphaTab.Importer.AlphaTexSymbols.Tuning)
                         this._track.Tuning = tuning.slice(0);
                         break;
                     default:
@@ -5051,7 +5050,7 @@ AlphaTab.Importer.Gp3To5Importer.prototype = {
         this._score.Tab = this.ReadStringIntUnused();
         this._score.Instructions = this.ReadStringIntUnused();
         var noticeLines = this.ReadInt32();
-        var notice = String();
+        var notice = new String();
         for (var i = 0; i < noticeLines; i++){
             if (i > 0)
                 notice+=""+'\r\n';
@@ -6227,7 +6226,7 @@ AlphaTab.Importer.GpxFileSystem.prototype = {
         }
     },
     GetString: function (data, offset, length){
-        var buf = String();
+        var buf = new String();
         for (var i = 0; i < length; i++){
             var code = data[offset + i] & 255;
             if (code == 0)
@@ -10407,7 +10406,7 @@ AlphaTab.Platform.Model.Font.prototype = {
         if (this._css != null && scale == 1){
             return this._css;
         }
-        var buf = String();
+        var buf = new String();
         if (this.get_IsBold()){
             buf+="bold ";
         }
@@ -10485,7 +10484,7 @@ AlphaTab.Platform.Svg.SvgCanvas = function (){
     this._TextAlign = AlphaTab.Platform.Model.TextAlign.Left;
     this._TextBaseline = AlphaTab.Platform.Model.TextBaseline.Top;
     this._Resources = null;
-    this._currentPath = String();
+    this._currentPath = new String();
     this._currentPathIsEmpty = true;
     this.set_Color(new AlphaTab.Platform.Model.Color(255, 255, 255, 255));
     this.set_LineWidth(1);
@@ -10531,13 +10530,13 @@ AlphaTab.Platform.Svg.SvgCanvas.prototype = {
         this._Resources = value;
     },
     BeginRender: function (width, height){
-        this.Buffer = String();
+        this.Buffer = new String();
         this.Buffer+="<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"";
         this.Buffer+=width;
         this.Buffer+="px\" height=\"";
         this.Buffer+=height;
         this.Buffer+="px\" class=\"alphaTabSurfaceSvg\">\n";
-        this._currentPath = String();
+        this._currentPath = new String();
         this._currentPathIsEmpty = true;
     },
     BeginGroup: function (identifier){
@@ -10597,7 +10596,7 @@ AlphaTab.Platform.Svg.SvgCanvas.prototype = {
             }
             this.Buffer+=" stroke=\"none\"/>";
         }
-        this._currentPath = String();
+        this._currentPath = new String();
         this._currentPathIsEmpty = true;
     },
     Stroke: function (){
@@ -10609,7 +10608,7 @@ AlphaTab.Platform.Svg.SvgCanvas.prototype = {
             s += " fill=\"none\" />";
             this.Buffer+=s;
         }
-        this._currentPath = String();
+        this._currentPath = new String();
         this._currentPathIsEmpty = true;
     },
     FillText: function (text, x, y){
@@ -12030,7 +12029,7 @@ AlphaTab.Rendering.Glyphs.AlternateEndingsGlyph.prototype = {
     DoLayout: function (){
         AlphaTab.Rendering.Glyphs.Glyph.prototype.DoLayout.call(this);
         this.Height = this.Renderer.get_Resources().WordsFont.Size + (3 * this.get_Scale() + 2);
-        var endingsStrings = String();
+        var endingsStrings = new String();
         for (var i = 0,j = this._endings.length; i < j; i++){
             endingsStrings+=this._endings[i] + 1;
             endingsStrings+=". ";
@@ -18390,7 +18389,7 @@ AlphaTab.Xml.XmlNode.prototype = {
     },
     get_InnerText: function (){
         if (this.NodeType == AlphaTab.Xml.XmlNodeType.Element || this.NodeType == AlphaTab.Xml.XmlNodeType.Document){
-            var txt = String();
+            var txt = new String();
             for (var $i111 = 0,$t111 = this.ChildNodes,$l111 = $t111.length,c = $t111[$i111]; $i111 < $l111; $i111++, c = $t111[$i111]){
                 txt+=c.get_InnerText();
             }
@@ -18485,7 +18484,7 @@ AlphaTab.Xml.XmlParser.Parse = function (str, p, parent){
     var state = 1;
     var next = 1;
     var start = 0;
-    var buf = String();
+    var buf = new String();
     var escapeNext = 1;
     var xml = null;
     var aname = null;
@@ -18525,7 +18524,7 @@ AlphaTab.Xml.XmlParser.Parse = function (str, p, parent){
                 var child = new AlphaTab.Xml.XmlNode();
                 child.NodeType = AlphaTab.Xml.XmlNodeType.Text;
                 child.Value = buf;
-                buf = String();
+                buf = new String();
                 parent.AddChild(child);
                 state = 0;
                 next = 2;
@@ -18656,7 +18655,7 @@ AlphaTab.Xml.XmlParser.Parse = function (str, p, parent){
                 switch (c){
                     case 34:
                     case 39:
-                    buf = String();
+                    buf = new String();
                     state = 8;
                     start = p + 1;
                     attrValQuote = c;
@@ -18675,7 +18674,7 @@ AlphaTab.Xml.XmlParser.Parse = function (str, p, parent){
                     if (c == attrValQuote){
                     buf+=str.substr(start, p - start);
                     var val = buf;
-                    buf = String();
+                    buf = new String();
                     xml.Attributes[aname] = val;
                     state = 0;
                     next = 4;
