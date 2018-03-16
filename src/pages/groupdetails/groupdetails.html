@@ -15,7 +15,17 @@
 
 <ion-content padding>
   <div *ngFor="let s of group.students">
-    email: {{s.email}}  naam: {{s.firstName}} {{s.lastName}}
+
+    <table>
+      <tr>
+        <th>Naam:</th>
+        <td>{{s.firstName}} {{s.lastName}}</td>
+      </tr>
+      <tr>
+        <th>Email:</th>
+        <td>{{s.email}}</td>
+      </tr>
+    </table>
 
   </div>
 
