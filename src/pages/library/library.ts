@@ -15,7 +15,6 @@ import {InstrumentsPage} from "../instruments/instruments";
   templateUrl: 'library.html',
 })
 export class LibraryPage {
-
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
