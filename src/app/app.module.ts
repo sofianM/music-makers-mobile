@@ -30,6 +30,7 @@ import {ChangepasswordPage} from "../pages/changepassword/changepassword";
 import {GroupdetailsPage} from "../pages/groupdetails/groupdetails";
 import {CRepetitionComponent} from "../components/c-repetition/c-repetition";
 import {RepetitiondetailsPage} from "../pages/repetitiondetails/repetitiondetails";
+import {InstrumentsPage} from "../pages/instruments/instruments";
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import {RepetitiondetailsPage} from "../pages/repetitiondetails/repetitiondetail
     ChangepasswordPage,
     GroupdetailsPage,
     RepetitiondetailsPage,
+    InstrumentsPage,
     CLessonComponent,
     CGroupComponent,
     CLessonComponent,
@@ -72,7 +74,8 @@ import {RepetitiondetailsPage} from "../pages/repetitiondetails/repetitiondetail
     ChangepasswordPage,
     UsersettingsPage,
     GroupdetailsPage,
-    RepetitiondetailsPage
+    RepetitiondetailsPage,
+    InstrumentsPage
   ],
   providers: [
     StatusBar,
