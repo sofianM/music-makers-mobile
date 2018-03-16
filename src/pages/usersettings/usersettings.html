@@ -16,8 +16,9 @@
         <ion-input placeholder="Verhoeven" id="lastname" type="text" name="lastname" [(ngModel)]="model.lastName" required></ion-input>
       </div>
     </div>
-
-    <ion-img src="{{profilePic}}" width="150" height="150" (click)="takePicture()"></ion-img>
+    <div class="img-container">
+      <ion-img src="{{profilePic}}" width="150" height="150" (click)="takePicture()"></ion-img>
+    </div>
   </div>
   <button class="changeName-button" ion-button (click)="changeName()">Change Name</button>
 

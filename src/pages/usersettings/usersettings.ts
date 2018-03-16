@@ -115,10 +115,12 @@ export class UsersettingsPage {
           .then((croppedImgPath) => {
             this.toBase64(croppedImgPath)
               .then((base64img) => {
-                this.setProfilePic(base64img);
+                let splittedBase64 = base64img.split('*');
+                let newBase64 = splittedBase64[0] + 'jpeg' + splittedBase64[1];
+                this.setProfilePic(newBase64);
                 this.getToken()
                   .then((token) => {
-                    this.userServiceProvider.postUserProfilePicture(token, base64img)
+                    this.userServiceProvider.postUserProfilePicture(token, newBase64)
                       .subscribe(() => console.log('Next OK'),
                         error => console.log('PostPictureError: ', error),
                         () => console.log('Compeleted'))
