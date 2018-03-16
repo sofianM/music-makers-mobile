@@ -26,22 +26,6 @@ module.exports = {
     src: ['{{ROOT}}/src/assets/alphaTab/AlphaTab.js'],
     dest: '{{WWW}}/assets'
   },
-  copyAlphaSynth: {
-    src: ['{{ROOT}}/src/assets/alphaTab/AlphaSynth.js'],
-    dest: '{{WWW}}/assets'
-  },
-  copyJQueryAlphatab: {
-    src: ['{{ROOT}}/src/assets/alphaTab/jquery.alphaTab.js'],
-    dest: '{{WWW}}/assets'
-  },
-  copyAlphaTabDrop: {
-    src: ['{{ROOT}}/src/assets/alphaTab/jquery.alphaTab.drop.js'],
-    dest: '{{WWW}}/assets'
-  },
-  copyAlphaSynthJQuery: {
-    src: ['{{ROOT}}/src/assets/alphaTab/jquery.alphaTab.alphaSynth.js'],
-    dest: '{{WWW}}/assets'
-  },
   copyJquery: {
     src: ['{{ROOT}}/node_modules/jquery/dist/jquery.js'],
     dest: '{{WWW}}/assets'

@@ -9,8 +9,11 @@ c-lesson {
   }
   button{
   }
-
-  .lesson {
-    display: block;
+  ion-label{
+    text-align: center;
+  }
+  .centerThis {
+    display: flex;
+    justify-content: center;
   }
 }

@@ -44,7 +44,7 @@ export class MyApp {
     ];
 
     this.storage.get('Authorization').then(loggedIn => {
-      this.rootPage = loggedIn ? AlphaTabPage : LoginPage;
+      this.rootPage = loggedIn ? AlphaTabPage : AlphaTabPage;
     });
   }
 
