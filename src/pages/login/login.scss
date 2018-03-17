@@ -6,6 +6,13 @@ ion-header {
   padding-bottom: 25%;
 }
 
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  overflow: auto;
+}
+
 .login-fail {
   color: #FF0000;
 }
