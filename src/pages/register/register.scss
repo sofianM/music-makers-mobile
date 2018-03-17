@@ -1,11 +1,17 @@
 page-register {
 
 }
-.flex-container {
-  display: flex;
-  flex-direction: row;
+
+ion-input {
+  text-align: right;
 }
 
 ion-header {
   padding-bottom: 0;
+}
+
+.register-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

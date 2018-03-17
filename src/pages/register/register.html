@@ -5,41 +5,81 @@
 </ion-header>
 
 <ion-content padding>
-    <form>
+    <!--<form>
       <div class="flex-container">
-        <div class="firstname">
+        <div class="horizontal-left">
           <ion-label color="primary">Voornaam:</ion-label>
           <ion-input placeholder="Voornaam" id="firstName" type="text" class="form-control" name="firstName"
                      [(ngModel)]="model.firstName" #email="ngModel" required></ion-input>
         </div>
 
-        <div class="lastname">
+        <div class="horizontal-right">
           <ion-label color="primary">Achternaam:</ion-label>
           <ion-input placeholder="Achternaam" id="lastName" type="text" class="form-control" name="lastName"
                      [(ngModel)]="model.lastName" #email="ngModel" required></ion-input>
         </div>
       </div>
 
+      <div class="flex-container">
+        <div class="horizontal-left">
+          <ion-label color="primary">Email:</ion-label>
+          <ion-input placeholder="Email" id="inputEmail" type="email" class="form-control" name="email"
+                     [(ngModel)]="model.email" #email="ngModel" required></ion-input>
+        </div>
+        <div class="horizontal-right">
+          <ion-label color="primary">Geboortedatum:</ion-label>
+          <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD-MM-YYYY" [(ngModel)]="birthday"
+                        name="birthday" placeholder="01-01-2000"></ion-datetime>
+        </div>
+      </div>
+
+      <ion-label color="primary">Wachtwoord:</ion-label>
+      <ion-input id="password" type="password" class="form-control" name="password" [(ngModel)]="model.password"
+                 #password="ngModel" placeholder="**********" required></ion-input>
+
+      <ion-label color="primary">Bevestig wachtwoord:</ion-label>
+      <ion-input id="confirmPassword" type="password" class="form-control" name="confirmPassword"
+                 [(ngModel)]="model.confirmPassword" #password="ngModel" placeholder="**********" required></ion-input>
+
+
+      <button ion-button type="submit" (click)="register()">Register</button>
+
+    </form>-->
+  <form>
+    <ion-item>
+      <ion-label color="primary">Voornaam:</ion-label>
+      <ion-input placeholder="Voornaam" id="firstName" type="text" class="form-control" name="firstName"
+                 [(ngModel)]="model.firstName" #email="ngModel" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Achternaam:</ion-label>
+      <ion-input placeholder="Achternaam" id="lastName" type="text" class="form-control" name="lastName"
+                 [(ngModel)]="model.lastName" #email="ngModel" required></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label color="primary">Email:</ion-label>
       <ion-input placeholder="Email" id="inputEmail" type="email" class="form-control" name="email"
                  [(ngModel)]="model.email" #email="ngModel" required></ion-input>
 
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Geboortedatum:</ion-label>
+      <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD-MM-YYYY" [(ngModel)]="birthday"
+                    name="birthday" placeholder="01-01-2000"></ion-datetime>
+    </ion-item>
+    <ion-item>
       <ion-label color="primary">Wachtwoord:</ion-label>
       <ion-input id="password" type="password" class="form-control" name="password" [(ngModel)]="model.password"
-                 #password="ngModel" required></ion-input>
-
+                 #password="ngModel" placeholder="**********" required></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label color="primary">Bevestig wachtwoord:</ion-label>
       <ion-input id="confirmPassword" type="password" class="form-control" name="confirmPassword"
-                 [(ngModel)]="model.confirmPassword" #password="ngModel" required></ion-input>
+                 [(ngModel)]="model.confirmPassword" #password="ngModel" placeholder="**********" required></ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label color="primary">Geboortedatum:</ion-label>
-        <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD-MM-YYYY" [(ngModel)]="birthday"
-                      name="birthday"></ion-datetime>
-      </ion-item>
-
-      <ion-item>
-        <button ion-button type="submit" (click)="register()">Register</button>
-      </ion-item>
-    </form>
+    <div class="register-button">
+      <button ion-button type="submit" (click)="register()">Register</button>
+    </div>
+  </form>
 </ion-content>
