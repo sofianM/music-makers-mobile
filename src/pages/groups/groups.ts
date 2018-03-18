@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
+import {GroupDTO} from "../../model/group";
+import {GroupdetailsPage} from "../groupdetails/groupdetails";
+import {GroupServiceProvider} from "../../providers/group-service/group-service";
+import {Storage} from "@ionic/storage";
 
 /**
  * Generated class for the GroupsPage page.
@@ -14,12 +18,36 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'groups.html',
 })
 export class GroupsPage {
+  public groups: GroupDTO[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              public loadingCtrl: LoadingController,
+              public navParams: NavParams,
+              public storage: Storage,
+              public groupServiceProvider: GroupServiceProvider) {
+    let loading = this.loadingCtrl.create({
+      content: 'Loading groups...'
+    });
+    loading.present();
+    this.storage.get('Authorization').then((res) => {
+      this.groupServiceProvider.getGroups(res)
+        .subscribe( res => {
+          this.groups = res;
+          console.log('Inside subscribe');
+          for (let group of this.groups) {
+            console.log('Group ' + group.name + ' under teacher: ' + group.teacherEmail);
+          }
+        },
+          error => console.log('GetGroupsError: ', error),
+          () => loading.dismiss());
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GroupsPage');
   }
 
+  protected goToGroupDetails(group: GroupDTO){
+    this.navCtrl.push(GroupdetailsPage, {group: group});
+  }
 }

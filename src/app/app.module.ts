@@ -20,7 +20,6 @@ import {LessondetailsPage} from "../pages/lessondetails/lessondetails";
 import {UsersettingsPage} from "../pages/usersettings/usersettings";
 import {CLessonComponent} from "../components/c-lesson/c-lesson";
 import {CConcertComponent} from "../components/c-concert/c-concert";
-import {CGroupComponent} from "../components/c-group/c-group";
 import {GroupServiceProvider} from "../providers/group-service/group-service";
 import { UserServiceProvider } from '../providers/user-service/user-service';
 import {Camera} from "@ionic-native/camera";
@@ -50,7 +49,6 @@ import {AlphaTabPage} from "../pages/alpha-tab/alpha-tab";
     RepetitiondetailsPage,
     InstrumentsPage,
     CLessonComponent,
-    CGroupComponent,
     CLessonComponent,
     CConcertComponent,
     CRepetitionComponent,

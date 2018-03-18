@@ -14,9 +14,16 @@
 
 
 <ion-content padding>
-
+<!--
   <ion-list>
     <c-group></c-group>
   </ion-list>
+-->
 
+  <ion-list>
+
+    <button ion-item *ngFor="let g of groups" (click)="goToGroupDetails(g)">
+      {{g.name}}
+    </button>
+  </ion-list>
 </ion-content>
