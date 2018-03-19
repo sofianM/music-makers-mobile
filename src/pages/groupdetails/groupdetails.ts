@@ -20,6 +20,9 @@ export class GroupdetailsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  oei(hallo, b, c) {
+
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad GroupdetailsPage');
   }

@@ -13,6 +13,8 @@ import {UserServiceProvider} from "../../providers/user-service/user-service";
  * Ionic pages and navigation.
  */
 
+//Branche: RegisterValidation
+
 @IonicPage()
 @Component({
   selector: 'page-register',

@@ -6,12 +6,14 @@ export class GroupDTO {
   teacherEmail: String;
   students: GroupUserDTO[];
 }
-export class StudentRepetitionDTO{
+
+export class StudentRepetitionDTO {
   id: number;
   repetitioninfo: String;
   calendarRepetitionDTOS: CalendarRepetitionDTO[]
 }
-export class CalendarRepetitionDTO{
+
+export class CalendarRepetitionDTO {
   id: number;
   date: CalendarRepetitionDate;
   startTime: CalendarRepetitionTime;

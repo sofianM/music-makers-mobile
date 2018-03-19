@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {InstrumentsPage} from "../instruments/instruments";
+import {AlphaTabPage} from "../alpha-tab/alpha-tab";
 
 /**
  * Generated class for the LibraryPage page.
@@ -28,7 +29,7 @@ export class LibraryPage {
   }
 
   goToMusicSheets() {
-
+    this.navCtrl.push(AlphaTabPage);
   }
 
   goToChords() {
