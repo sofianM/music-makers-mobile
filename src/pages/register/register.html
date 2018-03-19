@@ -5,41 +5,95 @@
 </ion-header>
 
 <ion-content padding>
-    <form>
-      <div class="flex-container">
-        <div class="firstname">
-          <ion-label color="primary">Voornaam:</ion-label>
-          <ion-input placeholder="Voornaam" id="firstName" type="text" class="form-control" name="firstName"
-                     [(ngModel)]="model.firstName" #email="ngModel" required></ion-input>
-        </div>
+  <form [formGroup]="credentialsForm">
+    <!--      <div class="flex-container">
+            <div class="firstname">
+              <ion-label color="primary">Voornaam:</ion-label>
+              <ion-input placeholder="Voornaam" id="firstName" type="text" class="form-control" formControlName="firstName"
+                         [(ngModel)]="model.firstName" required></ion-input>
+            </div>
 
-        <div class="lastname">
-          <ion-label color="primary">Achternaam:</ion-label>
-          <ion-input placeholder="Achternaam" id="lastName" type="text" class="form-control" name="lastName"
-                     [(ngModel)]="model.lastName" #email="ngModel" required></ion-input>
-        </div>
+            <div class="lastname">
+              <ion-label color="primary">Achternaam:</ion-label>
+              <ion-input placeholder="Achternaam" id="lastName" type="text" class="form-control" formControlName="lastName"
+                         [(ngModel)]="model.lastName"  required></ion-input>
+            </div>
+          </div>-->
+
+    <div class="flex-container">
+      <ion-item class="firstName">
+        <ion-label color="primary">Voornaam:</ion-label>
+        <ion-input [formControl]="credentialsForm.controls['firstName']"
+                   type="name" [(ngModel)]="model.firstName"></ion-input>
+      </ion-item>
+      <div *ngIf="credentialsForm.controls.firstName.hasError() &&
+        (credentialsForm.controls.firstName.dirty || credentialsForm.controls.firstName.touched || submitted)"
+           class="validator-error">
+        Passwords should be at least 8 characters long and contain one number, one character and one special character.
       </div>
 
-      <ion-label color="primary">Email:</ion-label>
-      <ion-input placeholder="Email" id="inputEmail" type="email" class="form-control" name="email"
-                 [(ngModel)]="model.email" #email="ngModel" required></ion-input>
+      <ion-item class="lastName">
+        <ion-label color="primary">Achternaam:</ion-label>
+        <ion-input [formControl]="credentialsForm.controls['lastName']"
+                   type="name" [(ngModel)]="model.lastName"></ion-input>
+      </ion-item>
+    </div>
 
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input [formControl]="credentialsForm.controls['email']"
+                 type="email" [(ngModel)]="model.email"></ion-input>
+    </ion-item>
+    <div *ngIf="!credentialsForm.controls.email.valid &&
+        (credentialsForm.controls.email.dirty || submitted)" class="validator-error">
+      Please enter a valid email.
+    </div>
+
+    <ion-item>
       <ion-label color="primary">Wachtwoord:</ion-label>
-      <ion-input id="password" type="password" class="form-control" name="password" [(ngModel)]="model.password"
-                 #password="ngModel" required></ion-input>
+      <ion-input [formControl]="credentialsForm.controls['password']"
+                 type="password" [(ngModel)]="model.password"></ion-input>
+    </ion-item>
+    <div *ngIf="credentialsForm.controls.password.hasError('pattern') &&
+        (credentialsForm.controls.password.dirty || submitted)"
+         class="validator-error">
+      Passwords should be at least 8 characters long and contain one number, one character and one special character.
+    </div>
 
+    <ion-item>
       <ion-label color="primary">Bevestig wachtwoord:</ion-label>
-      <ion-input id="confirmPassword" type="password" class="form-control" name="confirmPassword"
-                 [(ngModel)]="model.confirmPassword" #password="ngModel" required></ion-input>
+      <ion-input [formControl]="credentialsForm.controls['confirmPassword']"
+                 type="password" [(ngModel)]="model.confirmPassword"></ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label color="primary">Geboortedatum:</ion-label>
-        <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD-MM-YYYY" [(ngModel)]="birthday"
-                      name="birthday"></ion-datetime>
-      </ion-item>
+    <ion-item>
+      <ion-label color="primary">Geboortedatum:</ion-label>
+      <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD-MM-YYYY" [formControl]="credentialsForm.controls['birthday']"
+                    formControlName="birthday" [(ngModel)]="birthday"></ion-datetime>
+    </ion-item>
 
-      <ion-item>
-        <button ion-button round type="submit" (click)="register()">Register</button>
-      </ion-item>
-    </form>
+    <ion-item>
+      <button ion-button round type="submit" (click)="register()" [disabled]="!credentialsForm.valid">Register</button>
+    </ion-item>
+  </form>
 </ion-content>
+
+<!--    <ion-item>
+      <ion-label color="primary">Geboortedatum:</ion-label>
+      <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD-MM-YYYY" [(ngModel)]="birthday"
+                    formControlName="birthday"></ion-datetime>
+    </ion-item>-->
+    <!--      <ion-label color="primary">Wachtwoord:</ion-label>
+          <ion-input id="password" type="password" class="form-control" formControlName="password" [(ngModel)]="model.password"
+                     #password="ngModel" required></ion-input>
+
+          <ion-label color="primary">Bevestig wachtwoord:</ion-label>
+          <ion-input id="confirmPassword" type="password" class="form-control" formControlName="confirmPassword"
+                     [(ngModel)]="model.confirmPassword" #password="ngModel" required></ion-input>
+
+          <ion-item>
+            <ion-label color="primary">Geboortedatum:</ion-label>
+            <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD-MM-YYYY" [(ngModel)]="birthday"
+                          formControlName="birthday"></ion-datetime>
+          </ion-item>-->
+
