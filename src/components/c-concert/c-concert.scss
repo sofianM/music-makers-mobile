@@ -3,6 +3,10 @@ c-concert {
     background-color: map-get($colors, primary);
     color: #fff;
   }
+  .centerThis {
+    display: flex;
+    justify-content: center;
+  }
   .card-content {
     padding: 0px 16px;
     max-height: 0px;
@@ -10,9 +14,6 @@ c-concert {
   ion-label{
     text-align: center;
   }
-  .centerThis {
-    display: flex;
-    justify-content: center;
-  }
+
 
 }

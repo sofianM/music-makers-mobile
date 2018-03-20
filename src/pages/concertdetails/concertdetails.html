@@ -14,33 +14,19 @@
 
 
 <ion-content padding>
-    <table>
-      <tr>
-        <th>Concert info: </th>
-        <td>{{c.concertInfo}}</td>
-      </tr>
-      <tr>
-        <th>Datum: </th>
-        <td>{{c.date.dayOfMonth}}/{{c.date.monthValue}}/{{c.date.year}}</td>
-      </tr>
-      <tr>
-        <th>Start:</th>
-        <td>{{c.time.hour}}:{{oneA(c.time.minute)}}</td>
-      </tr>
-      <tr>
-        <th>Participating groups:</th>
-        <th *ngFor="let g of concert.studentgroups">Group name:</th>
-          <td>{{g.name}}</td>
-      </tr>
-    </table>
-    <div class="absent">
-      <ion-item class="toggleSize">
-        <ion-label>Absent</ion-label>
-        <ion-toggle (ionChange)="setAbsent()"></ion-toggle>
-      </ion-item>
-      <ion-item>
-        <button (click)="setAbsent"></button>
-      </ion-item>
-    </div>
-
+  <table>
+    <tr>
+      <th>Concert info: </th>
+      <td>{{concert.concertInfo}}</td>
+    </tr>
+    <tr>
+      <th>Datum: </th>
+      <td>{{concert.date.dayOfMonth}}/{{concert.date.monthValue}}/{{concert.date.year}}</td>
+    </tr>
+    <tr>
+      <th>Start:</th>
+      <td>{{concert.time.hour}}:{{oneA(concert.time.minute)}}</td>
+    </tr>
+    <tr>
+  </table>
 </ion-content>

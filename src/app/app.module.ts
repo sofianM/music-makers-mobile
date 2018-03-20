@@ -49,11 +49,11 @@ import {ConcertdetailsPage} from "../pages/concertdetails/concertdetails";
     ChangepasswordPage,
     GroupdetailsPage,
     RepetitiondetailsPage,
-    ConcertdetailsPage,
     InstrumentsPage,
     CLessonComponent,
     CLessonComponent,
     CConcertComponent,
+    ConcertdetailsPage,
     CRepetitionComponent,
     AlphaTabPage
   ],
