@@ -14,5 +14,24 @@ page-library {
   bottom: 8px;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+ion-card {
+  position: relative;
+  text-align: center;
+}
+
+img {
+  width: 110%;
+  height: 110%;
+}
+
+.card-title {
+  position: absolute;
+  top: 36%;
+  font-size: 2.0em;
+  width: 100%;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.7);
 }

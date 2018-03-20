@@ -18,6 +18,7 @@
 </ion-header>
 
 <ion-content padding>
+  <!--
   <div class="dashboard-buttons-container">
     <div>
       <button class="dashboard-button" outline ion-button (click)="goToAgenda()">Mijn Agenda</button>
@@ -29,4 +30,39 @@
       <button class="dashboard-button" outline ion-button (click)="goToLibrary()">Mijn Bib</button>
     </div>
   </div>
+  -->
+  <ion-grid class="dashboard-grid">
+    <ion-row>
+      <ion-col>
+        <!-- agenda -->
+        <div class="clickable" (click)="goToAgenda()">
+          <img src="./assets/imgs/agenda-icon.png" alt="Agenda">
+          <ion-label class="dashboard-button-text">Agenda</ion-label>
+        </div>
+      </ion-col>
+      <ion-col>
+        <!-- groups -->
+        <div class="clickable" (click)="goToGroups()">
+          <img src="./assets/imgs/groups-icon.png" alt="Groups">
+          <ion-label class="dashboard-button-text">Groups</ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <!-- library -->
+        <div  class="clickable" (click)="goToLibrary()">
+          <img src="./assets/imgs/library-icon.png" alt="Library">
+          <p class="dashboard-button-text">Library</p>
+        </div>
+      </ion-col>
+      <ion-col>
+        <!-- grades -->
+        <div class="clickable" (click)="goToGrades()">
+          <img src="./assets/imgs/grades-icon.png" alt="Grades">
+          <p class="dashboard-button-text">Grades</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -7,10 +7,9 @@ ion-header {
 }
 
 .login-container {
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
-  overflow: auto;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
 .login-fail {

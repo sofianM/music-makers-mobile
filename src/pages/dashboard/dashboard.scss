@@ -6,9 +6,29 @@ page-dashboard {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
 }
 
 .dashboard-button {
   width: 100%;
+}
+
+ion-grid {
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+img {
+  padding: 10px 10px 0px 10px;
+}
+
+.clickable {
+  border: 2px solid #488aff;
+}
+
+.dashboard-button-text {
+  color: #488aff;
+  padding: 0;
+  text-align: center;
+  font-weight: bold;
 }

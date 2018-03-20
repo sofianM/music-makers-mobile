@@ -18,29 +18,31 @@ import {RepetitiondetailsPage} from "../../pages/repetitiondetails/repetitiondet
 export class CRepetitionComponent implements OnInit{
   public repetitions: StudentRepetitionDTO[];
   accordionExpanded = false;
-  @ViewChild('cc') cardContent: any;
   icon: string = "arrow-forward";
-
-
-
   text: string;
 
-  constructor(public navCtrl: NavController,public renderer: Renderer2, public storage: Storage,public groupServiceProvider: GroupServiceProvider,) {
+  @ViewChild('cc') cardContent: any;
+
+  constructor(public navCtrl: NavController,
+              public renderer: Renderer2,
+              public storage: Storage,
+              public groupServiceProvider: GroupServiceProvider) {
     this.storage.get('Authorization').then((res) => {
       this.groupServiceProvider.getRepetitions(res)
         .subscribe( res => {
           this.repetitions = res;
           console.log('Inside subscribe: ', res);
-          for (let repetition of this.repetitions) {
-            console.log('Repetition ' + repetition.id + ': ' + repetition.repetitioninfo);
-          }
-        });
+          for (let repetition of this.repetitions) console.log('Repetition ' + repetition.id + ': ' + repetition.repetitioninfo);
+        },
+          error => console.log('GetRepetitionsError: ', error),
+          () => console.log('Completed'));
     });
   }
   ngOnInit(): void {
     console.log(this.cardContent.nativeElement);
     this.renderer.setStyle(this.cardContent.nativeElement, "webkitTransition", "max-height 500ms, padding 500ms");
   }
+
   toggleAccordion() {
     if (this.accordionExpanded) {
       this.renderer.setStyle(this.cardContent.nativeElement, "max-height", "0px");
@@ -54,6 +56,7 @@ export class CRepetitionComponent implements OnInit{
     this.accordionExpanded = !this.accordionExpanded;
     this.icon = this.icon == "arrow-forward" ? "arrow-down" : "arrow-forward";
   }
+
   goToRepetitionCalendar(r: StudentRepetitionDTO) {
     this.navCtrl.push(RepetitiondetailsPage, {repetition: r});
   }
