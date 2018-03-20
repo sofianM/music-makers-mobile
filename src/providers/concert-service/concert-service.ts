@@ -1,6 +1,6 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {StudentRepetitionDTO} from "../../model/group";
+import {GroupDTO, StudentRepetitionDTO} from "../../model/group";
 import {Observable} from "rxjs/Observable";
 import {ConcertStudentDTO} from "../../model/concert";
 import {Storage} from "@ionic/storage";
@@ -13,7 +13,9 @@ import {Storage} from "@ionic/storage";
 */
 @Injectable()
 export class ConcertServiceProvider {
-  private getConcertsURL = 'https://music-makers.herokuapp.com/concerts/getConcerts';
+  private getConcertsAsStudentURL = 'https://music-makers.herokuapp.com/concerts/getConcertsAsStudent';
+  private getConcertsAsTeacherURL = 'https://music-makers.herokuapp.com/concerts/getConcertsAsTeacher';
+
 
   constructor(public http: HttpClient, private storage: Storage) {
   }
@@ -26,10 +28,23 @@ export class ConcertServiceProvider {
     let httpOptions = {
       headers: new HttpHeaders({'Accept': 'application/json', 'Authorization': token})
     };
-
     // GET
-    return this.http.get(this.getConcertsURL, httpOptions)
-      .map(res => res as ConcertStudentDTO[]);
+    return this.getRoles().mergeMap(roles => {
+      if (this.isStudent(roles)){
+        return this.http.get(this.getConcertsAsStudentURL, httpOptions)
+          .map(res => res as ConcertStudentDTO[]);
+      } else {
+        return this.http.get(this.getConcertsAsTeacherURL, httpOptions)
+          .map(res => res as ConcertStudentDTO[]);
+      }
+    })
+  }
+  private getRoles(): Observable<any> {
+    return Observable.fromPromise(this.storage.get('Roles'));
+  }
+
+  private isStudent(roles: string): boolean {
+    return (roles.indexOf('ROLE_STUDENT') >= 0);
   }
 
 }

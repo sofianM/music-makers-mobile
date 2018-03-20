@@ -15,7 +15,9 @@ export class GroupServiceProvider{
   private getGroupsAsTeacher = 'https://music-makers.herokuapp.com/groups/getGroupsAsTeacher';
   private getGroupsAsStudent = 'https://music-makers.herokuapp.com/groups/getGroupsAsStudent';
 
-  private getRepetitionsUrl = 'https://music-makers.herokuapp.com/groups/getRepetitions';
+  private getRepetitionsAsTeacher = 'https://music-makers.herokuapp.com/groups/getRepetitionsAsTeacher';
+  private getRepetitionsAsStudent = 'https://music-makers.herokuapp.com/groups/getRepetitionsAsStudent';
+
   private roles: string;
 
 
@@ -65,8 +67,15 @@ export class GroupServiceProvider{
     };
 
     // GET
-    return this.http.get(this.getRepetitionsUrl, httpOptions)
-      .map(res => res as StudentRepetitionDTO[]);
+    return this.getRoles().mergeMap(roles => {
+      if (this.isStudent(roles)){
+        return this.http.get(this.getRepetitionsAsStudent, httpOptions)
+          .map(res => res as StudentRepetitionDTO[]);
+      } else {
+        return this.http.get(this.getRepetitionsAsTeacher, httpOptions)
+          .map(res => res as StudentRepetitionDTO[]);
+      }
+    })
   }
 
   private getRoles(): Observable<any> {
