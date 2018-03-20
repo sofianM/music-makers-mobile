@@ -5,14 +5,16 @@
         <button ion-button clear small icon-only item-right>
           <ion-icon color="light" [name]="icon"></ion-icon>
         </button>
-        Concert
+        Concerten
       </ion-item>
     </ion-list>
   </ion-card-header>
-  <ion-card-content  class="centerThis" #cc>
-    <button
-      ion-button clear small icon-only (click)="goToDetails(l)">
-    Toon concerten
-    </button>
+  <ion-card-content #cc>
+    <div class="centerThis">
+      <button
+        ion-button clear small icon-only *ngFor="let c of concerts" class="lesson" (click)="goToConcertDetails(c)" >
+        {{c.concertInfo}}
+      </button>
+    </div>
   </ion-card-content>
 </ion-card>

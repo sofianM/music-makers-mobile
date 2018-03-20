@@ -4,6 +4,12 @@ import {LessonServiceProvider} from "../../providers/lesson-service/lesson-servi
 import {CalendarLessonDTO} from "../../model/calendarLesson";
 import {Storage} from "@ionic/storage";
 import {NavController} from "ionic-angular";
+import {GroupServiceProvider} from "../../providers/group-service/group-service";
+import {RepetitiondetailsPage} from "../../pages/repetitiondetails/repetitiondetails";
+import {StudentRepetitionDTO} from "../../model/group";
+import {ConcertStudentDTO} from "../../model/concert";
+import {ConcertServiceProvider} from "../../providers/concert-service/concert-service";
+import {ConcertdetailsPage} from "../../pages/concertdetails/concertdetails";
 
 /**
  * Generated class for the CConcertComponent component.
@@ -17,38 +23,35 @@ import {NavController} from "ionic-angular";
 })
 export class CConcertComponent implements OnInit{
 
-  public lessons: CalendarLessonDTO[];
-  accordionExapanded = false;
-  @ViewChild("cc") cardContent: any;
-
+  public concerts: ConcertStudentDTO[];
+  accordionExpanded = false;
   icon: string = "arrow-forward";
+  text: string;
 
-  constructor(public navCtrl: NavController,public renderer: Renderer2, public storage: Storage,public lessonServiceProvider: LessonServiceProvider,) {
+  @ViewChild('cc') cardContent: any;
+
+  constructor(public navCtrl: NavController,
+              public renderer: Renderer2,
+              public storage: Storage,
+              public concertServiceProvider: ConcertServiceProvider) {
     this.storage.get('Authorization').then((res) => {
-/*      this.lessonServiceProvider.getLessons(res)
+      this.concertServiceProvider.getConcerts(res)
         .subscribe( res => {
-          this.lessons = res;
-          console.log('Inside subscribe');
-          for (let lesson of this.lessons) {
-            console.log('Lesson ' + lesson.id + ': ' + lesson.name);
-          }
-        });*/
-      console.log(res);
+            this.concerts = res;
+            console.log('Inside subscribe: ', res);
+            for (let concert of this.concerts) console.log('Concert ' + concert.id + ': ' + concert.concertInfo);
+          },
+          error => console.log('GetConcertsError: ', error),
+          () => console.log('Completed'));
     });
   }
-
-  ngOnInit() {
+  ngOnInit(): void {
     console.log(this.cardContent.nativeElement);
     this.renderer.setStyle(this.cardContent.nativeElement, "webkitTransition", "max-height 500ms, padding 500ms");
   }
 
-  goToDetails(l: CalendarLessonDTO) {
-    // this.navCtrl.push(LessondetailsPage, {lesson: k});
-    console.log("Go to concerts")
-  }
-
   toggleAccordion() {
-    if (this.accordionExapanded) {
+    if (this.accordionExpanded) {
       this.renderer.setStyle(this.cardContent.nativeElement, "max-height", "0px");
       this.renderer.setStyle(this.cardContent.nativeElement, "padding", "0px 16px");
 
@@ -57,8 +60,13 @@ export class CConcertComponent implements OnInit{
       this.renderer.setStyle(this.cardContent.nativeElement, "padding", "13px 16px");
 
     }
-    this.accordionExapanded = !this.accordionExapanded;
+    this.accordionExpanded = !this.accordionExpanded;
     this.icon = this.icon == "arrow-forward" ? "arrow-down" : "arrow-forward";
   }
+
+  goToConcertDetails(c: ConcertStudentDTO) {
+    this.navCtrl.push(ConcertdetailsPage, {concert: c});
+  }
+
 
 }

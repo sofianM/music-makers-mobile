@@ -32,6 +32,8 @@ import {RepetitiondetailsPage} from "../pages/repetitiondetails/repetitiondetail
 import {InstrumentsPage} from "../pages/instruments/instruments";
 import { LibraryServiceProvider } from '../providers/library-service/library-service';
 import {AlphaTabPage} from "../pages/alpha-tab/alpha-tab";
+import { ConcertServiceProvider } from '../providers/concert-service/concert-service';
+import {ConcertdetailsPage} from "../pages/concertdetails/concertdetails";
 
 @NgModule({
   declarations: [
@@ -47,6 +49,7 @@ import {AlphaTabPage} from "../pages/alpha-tab/alpha-tab";
     ChangepasswordPage,
     GroupdetailsPage,
     RepetitiondetailsPage,
+    ConcertdetailsPage,
     InstrumentsPage,
     CLessonComponent,
     CLessonComponent,
@@ -77,7 +80,8 @@ import {AlphaTabPage} from "../pages/alpha-tab/alpha-tab";
     RepetitiondetailsPage,
     InstrumentsPage,
     UsersettingsPage,
-    AlphaTabPage
+    AlphaTabPage,
+    ConcertdetailsPage
   ],
   providers: [
     StatusBar,
@@ -91,7 +95,8 @@ import {AlphaTabPage} from "../pages/alpha-tab/alpha-tab";
     Camera,
     Crop,
     Base64,
-    LibraryServiceProvider
+    LibraryServiceProvider,
+    ConcertServiceProvider
   ]
 })
 export class AppModule {
