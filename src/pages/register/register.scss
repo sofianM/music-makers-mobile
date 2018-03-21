@@ -10,6 +10,10 @@ ion-header {
   padding-bottom: 0;
 }
 
+.validator-error {
+  color: red;
+}
+
 .register-button {
   display: flex;
   justify-content: center;
