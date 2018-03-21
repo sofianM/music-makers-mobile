@@ -1,3 +1,9 @@
+export class InstrumentGradeDTO {
+  id: number;
+  score: number;
+  instrument: InstrumentDTO;
+}
+
 export class InstrumentDTO {
   id: number;
   name: string;

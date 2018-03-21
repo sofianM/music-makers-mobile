@@ -1,0 +1,31 @@
+<!--
+  Generated template for the GradesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>grades</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item-sliding *ngFor="let grade of grades">
+      <ion-item>
+        <ion-card>
+          <ion-card-header>
+            {{grade.instrument.name}}
+          </ion-card-header>
+          <ion-card-content>
+            <p>Score: {{grade.score}}/100</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

@@ -39,6 +39,7 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient} from '@angular/common/http';
 import {PreferencesPage} from "../pages/preferences/preferences";
+import {GradesPage} from "../pages/grades/grades";
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import {PreferencesPage} from "../pages/preferences/preferences";
     CConcertComponent,
     ConcertdetailsPage,
     CRepetitionComponent,
-    AlphaTabPage
+    AlphaTabPage,
+    GradesPage
   ],
   imports: [
     BrowserModule,
@@ -95,7 +97,8 @@ import {PreferencesPage} from "../pages/preferences/preferences";
     UsersettingsPage,
     AlphaTabPage,
     ConcertdetailsPage,
-    PreferencesPage
+    PreferencesPage,
+    GradesPage
   ],
   providers: [
     StatusBar,

@@ -3,6 +3,7 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {LibraryPage} from "../library/library";
 import {GroupsPage} from "../groups/groups";
 import {AgendaPage} from "../agenda/agenda";
+import {GradesPage} from "../grades/grades";
 
 /**
  * Generated class for the DashboardPage page.
@@ -35,6 +36,10 @@ export class DashboardPage {
 
   goToLibrary() {
     this.navCtrl.push(LibraryPage);
+  }
+
+  goToGrades() {
+    this.navCtrl.push(GradesPage);
   }
 }
 
