@@ -1,30 +1,22 @@
-<ion-menu id="leftSideMenu" side="left" [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Navigate</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-    </ion-list>
-  </ion-content>
-</ion-menu>
+<!--<ion-menu id="leftSideMenu" side="left" [content]="content">-->
+  <!--<ion-header>-->
+    <!--<ion-toolbar>-->
+      <!--<ion-title>{{'appdrawer.pagetitle' | translate}}</ion-title>-->
+    <!--</ion-toolbar>-->
+  <!--</ion-header>-->
+<!--</ion-menu>-->
 
 <ion-menu id="rightSideMenu" [content]="content" side="right">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Settings</ion-title>
+      <ion-title>{{'appdrawer.settings' | translate}}</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
     <ion-list>
-      <button menuClose ion-item (click)="goToUserSettings()">Account Settings</button>
-      <button menuClose ion-item (click)="logout()">Logout</button>
+      <button menuClose ion-item (click)="goToUserSettings()">{{'appdrawer.accountsettings' | translate}}</button>
+      <button menuClose ion-item (click)="logout()">{{'appdrawer.logout' | translate}}</button>
     </ion-list>
   </ion-content>
 </ion-menu>

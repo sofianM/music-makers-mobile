@@ -4,8 +4,8 @@ import {GroupDTO} from "../../model/group";
 import {GroupdetailsPage} from "../groupdetails/groupdetails";
 import {GroupServiceProvider} from "../../providers/group-service/group-service";
 import {Storage} from "@ionic/storage";
-import { _ } from '@biesbjerg/ngx-translate-extract';
 import {TranslateService} from "@ngx-translate/core";
+// import {TranslateService} from "@ngx-translate/core";
 
 /**
  * Generated class for the GroupsPage page.
@@ -28,11 +28,15 @@ export class GroupsPage {
               public storage: Storage,
               public groupServiceProvider: GroupServiceProvider,
               private translate: TranslateService) {
-    let loading = this.loadingCtrl.create({
-      // content: this.translate.get('groups.loadmessage').subscribe((res:string))
-      content: 'Loading groups...'
+    let loading;
+    this.translate.get('groups.loadmessage').subscribe(res => {
+      loading = this.loadingCtrl.create({
+        // content: this.translate.get('groups.loadmessage').subscribe((res:string))
+        content: res
     });
-    loading.present();
+      loading.present();
+    });
+
     this.storage.get('Authorization').then((res) => {
       this.groupServiceProvider.getGroups(res)
         .subscribe( res => {

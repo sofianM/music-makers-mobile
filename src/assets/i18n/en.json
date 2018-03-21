@@ -39,6 +39,7 @@
     "email":"Email: "
   },
   "groups":{
+    "pagetitle": "Groups",
     "loadmessage": "Loading groups..."
   },
   "changepassword":{
@@ -52,6 +53,7 @@
     "pagetitle": "Instruments"
   },
   "library":{
+    "pagetitle": "Library",
     "instruments": "Instruments",
     "scores": "Scores",
     "chords": "Chords"
@@ -62,5 +64,11 @@
     "lastname": "Last name: ",
     "changename": "Change name",
     "changepassword": "Change password"
+  },
+  "appdrawer":{
+    "pagetitle":"Navigate",
+    "settings":"Settings",
+    "accountsettings": "Account Settings",
+    "logout": "Logout"
   }
 }

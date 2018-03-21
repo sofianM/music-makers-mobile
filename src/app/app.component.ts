@@ -38,12 +38,12 @@ export class MyApp {
     this.initializeApp();
 
     // set our app's pages
-    this.pages = [
-      { title: 'Dashboard', component: DashboardPage},
-      { title: 'Library', component: LibraryPage},
-      { title: 'Agenda', component: AgendaPage},
-      { title: 'Groups', component: GroupsPage}
-    ];
+    // this.pages = [
+    //   { title: 'Dashboard', component: DashboardPage},
+    //   { title: 'Library', component: LibraryPage},
+    //   { title: 'Agenda', component: AgendaPage},
+    //   { title: 'Groups', component: GroupsPage}
+    // ];
 
     this.storage.get('Authorization').then(loggedIn => {
       this.rootPage = loggedIn ? DashboardPage : LoginPage;
@@ -60,12 +60,12 @@ export class MyApp {
     });
   }
 
-  openPage(page) {
+  // openPage(page) {
     // close the menu when clicking a link from the menu
-    this.menu.close();
+    // this.menu.close();
     // navigate to the new page if it is not the current page
-    this.nav.push(page.component);
-  }
+    // this.nav.push(page.component);
+  // }
 
   public logout() {
     this.storage.remove('Authorization');

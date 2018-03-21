@@ -39,6 +39,7 @@
     "email":"Email: "
   },
   "groups":{
+    "pagetitle": "Groepen",
     "loadmessage": "Groepen laden..."
   },
   "changepassword":{
@@ -52,6 +53,7 @@
     "pagetitle": "Instrumenten"
   },
   "library":{
+    "pagetitle": "Bibliotheek",
     "instruments": "Instrumenten",
     "scores": "Partituren",
     "chords": "Akkoorden"
@@ -62,5 +64,11 @@
     "lastname": "Achternaam: ",
     "changename": "Wijzig naam",
     "changepassword": "Wijzig paswoord"
+  },
+  "appdrawer":{
+    "pagetitle":"Navigeer",
+    "settings":"Instellingen",
+    "accountsettings": "Account Instellingen",
+    "logout": "Uitloggen"
   }
 }
