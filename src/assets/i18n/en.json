@@ -75,5 +75,23 @@
   },
   "preferences":{
     "pagetitle": "Preferences"
+  },
+  "register":{
+    "pagetitle": "Register",
+    "firstname": "First name: ",
+    "lastname": "Last name: ",
+    "email": "Email: ",
+    "birthdate": "Birthdate: ",
+    "password": "Password: ",
+    "confirmpass": "Confirm password: ",
+    "register": "Register"
+  },
+  "login":{
+    "pagetitle": "Login",
+    "errormessage": "Wrong login data, Please try again.",
+    "email": "Email: ",
+    "password": "Password: ",
+    "login": "Login",
+    "register": "Register"
   }
 }

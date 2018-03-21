@@ -76,5 +76,23 @@
   },
   "preferences":{
     "pagetitle": "Voorkeuren"
+  },
+  "register":{
+    "pagetitle": "Registreer",
+    "firstname": "Voornaam: ",
+    "lastname": "Achternaam: ",
+    "email": "Email: ",
+    "birthdate": "Geboortedatum: ",
+    "password": "Paswoord: ",
+    "confirmpass": "Bevestig paswoord: ",
+    "register": "Registreer"
+  },
+  "login":{
+    "pagetitle": "Login",
+    "errormessage": "Foute login gegevens, probeer opnieuw.",
+    "email": "Email: ",
+    "password": "Paswoord: ",
+    "login": "Login",
+    "register": "Registreer"
   }
 }
