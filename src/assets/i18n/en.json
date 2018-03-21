@@ -93,5 +93,10 @@
     "password": "Password: ",
     "login": "Login",
     "register": "Register"
+  },
+  "lang":{
+    "languages":"Languages",
+    "english": "English",
+    "dutch": "Dutch"
   }
 }

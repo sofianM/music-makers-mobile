@@ -9,10 +9,21 @@
   <ion-navbar>
     <ion-title>{{'preferences.pagetitle' | translate}}</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
+  <ion-item-group radio-group="applyLanguage">
+
+  <ion-item-divider>{{'lang.languages' | translate}}</ion-item-divider>
+  <ion-item>
+    <ion-label>{{'lang.english' | translate}}  </ion-label>
+    <ion-radio (ionSelect)="useLanguage('en')"> </ion-radio>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{'lang.dutch' | translate}}  </ion-label>
+    <ion-radio (ionSelect)="useLanguage('nl')"> </ion-radio>
+  </ion-item>
+  </ion-item-group>
 
 </ion-content>

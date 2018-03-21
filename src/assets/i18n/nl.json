@@ -94,5 +94,10 @@
     "password": "Paswoord: ",
     "login": "Login",
     "register": "Registreer"
+  },
+  "lang":{
+    "languages":"Talen",
+    "english": "Engels",
+    "dutch": "Nederlands"
   }
 }
