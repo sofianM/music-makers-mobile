@@ -38,6 +38,7 @@ import {ConcertdetailsPage} from "../pages/concertdetails/concertdetails";
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient} from '@angular/common/http';
+import {PreferencesPage} from "../pages/preferences/preferences";
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import {HttpClient} from '@angular/common/http';
     AgendaPage,
     LessondetailsPage,
     UsersettingsPage,
+    PreferencesPage,
     ChangepasswordPage,
     GroupdetailsPage,
     RepetitiondetailsPage,
@@ -92,7 +94,8 @@ import {HttpClient} from '@angular/common/http';
     InstrumentsPage,
     UsersettingsPage,
     AlphaTabPage,
-    ConcertdetailsPage
+    ConcertdetailsPage,
+    PreferencesPage
   ],
   providers: [
     StatusBar,

@@ -15,6 +15,7 @@ import {LessondetailsPage} from "../pages/lessondetails/lessondetails";
 import {UsersettingsPage} from "../pages/usersettings/usersettings";
 import {AlphaTabPage} from "../pages/alpha-tab/alpha-tab";
 import {TranslateService} from '@ngx-translate/core';
+import {PreferencesPage} from "../pages/preferences/preferences";
 
 @Component({
   templateUrl: 'app.html'
@@ -48,7 +49,7 @@ export class MyApp {
     this.storage.get('Authorization').then(loggedIn => {
       this.rootPage = loggedIn ? DashboardPage : LoginPage;
     });
-    translate.setDefaultLang('nl');
+    translate.setDefaultLang('en');
   }
 
   initializeApp() {
@@ -76,5 +77,9 @@ export class MyApp {
   goToUserSettings() {
     this.menu.close();
     this.nav.push(UsersettingsPage);
+  }
+  goToPreferences() {
+    this.menu.close();
+    this.nav.push(PreferencesPage);
   }
 }

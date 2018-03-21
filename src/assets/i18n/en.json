@@ -63,12 +63,17 @@
     "firstname": "First name: ",
     "lastname": "Last name: ",
     "changename": "Change name",
-    "changepassword": "Change password"
+    "changepassword": "Change password",
+    "loadmessage": "Loading settings..."
   },
   "appdrawer":{
     "pagetitle":"Navigate",
     "settings":"Settings",
     "accountsettings": "Account Settings",
-    "logout": "Logout"
+    "logout": "Logout",
+    "preferences": "Preferences"
+  },
+  "preferences":{
+    "pagetitle": "Preferences"
   }
 }

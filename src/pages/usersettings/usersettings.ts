@@ -6,6 +6,7 @@ import {Camera, CameraOptions} from "@ionic-native/camera";
 import {Crop} from "@ionic-native/crop";
 import {Base64} from "@ionic-native/base64";
 import {ChangepasswordPage} from "../changepassword/changepassword";
+import {TranslateService} from "@ngx-translate/core";
 /**
  * Generated class for the UsersettingsPage page.
  *
@@ -33,11 +34,16 @@ export class UsersettingsPage {
               public storage: Storage,
               public camera: Camera,
               public crop: Crop,
-              public base: Base64) {
-    let loading = this.loadingCtrl.create({
-      content: 'Loading user info...'
+              public base: Base64,
+              private translate: TranslateService){
+  let loading;
+  this.translate.get('usersettings.loadmessage').subscribe(res => {
+    loading = this.loadingCtrl.create({
+      content: res
     });
     loading.present();
+  });
+
     this.getToken().then((token) => {
       this.userServiceProvider.getUserProfilePicture(token)
         .subscribe(data => {

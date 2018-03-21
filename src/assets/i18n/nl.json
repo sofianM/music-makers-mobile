@@ -63,12 +63,18 @@
     "firstname": "Voornaam: ",
     "lastname": "Achternaam: ",
     "changename": "Wijzig naam",
-    "changepassword": "Wijzig paswoord"
+    "changepassword": "Wijzig paswoord",
+    "loadmessage": "Instellingen laden..."
+
   },
   "appdrawer":{
     "pagetitle":"Navigeer",
     "settings":"Instellingen",
     "accountsettings": "Account Instellingen",
-    "logout": "Uitloggen"
+    "logout": "Uitloggen",
+    "preferences": "Voorkeuren"
+  },
+  "preferences":{
+    "pagetitle": "Voorkeuren"
   }
 }
