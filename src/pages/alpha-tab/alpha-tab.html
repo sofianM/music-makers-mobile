@@ -15,17 +15,6 @@
 
 <ion-content padding>
 
-<!--  <ion-list>
-    <ion-item>
-      <ion-label>Toppings</ion-label>
-      <ion-select [(ngModel)]="song" (ionChange)="songs(song)" multiple="false" cancelText="Annuleer" okText="Kies">
-        <ion-option value="1" selected="true">Bacon</ion-option>
-        <ion-option value="2">Black Olives</ion-option>
-        <ion-option value="3">Extra Cheese</ion-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>-->
-
   <ion-item>
     <ion-label>Songs</ion-label>
     <ion-select [(ngModel)]="song" (ionChange)="songs(song)" okText="Ok" cancelText="Cancel">
@@ -43,7 +32,6 @@
 
           <div id="alphaTabDataInit" data-file="../assets/songs/NightWish.gp5" data-tracks="3"
                data-player-offset="[-10,-70]"></div>
-          <!--data-player="../../../assets/js/alphatab/default.sf2"-->
 
 
         </div>
@@ -52,7 +40,6 @@
 
           <div id="alphaTabDataInit" data-file="../assets/songs/Canon.gp5" data-tracks="3"
                data-player-offset="[-10,-70]"></div>
-          <!--data-player="../../../assets/js/alphatab/default.sf2"-->
 
         </div>
 
@@ -67,7 +54,6 @@
         <div *ngSwitchDefault class="centering bold">Laad een liedje in.</div>
 
       </div>
-      <!--<div id="alphaTabDataInit" data-file="files/CanonShort.gpx" data-player="lib/alphaSynth/default.sf2" data-player-offset="-70"></div>-->
     </div>
   </div>
 </ion-content>
