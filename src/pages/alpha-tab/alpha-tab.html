@@ -15,12 +15,28 @@
 
 <ion-content padding>
 
+<!--  <ion-list>
+    <ion-item>
+      <ion-label>Toppings</ion-label>
+      <ion-select [(ngModel)]="song" (ionChange)="songs(song)" multiple="false" cancelText="Annuleer" okText="Kies">
+        <ion-option value="1" selected="true">Bacon</ion-option>
+        <ion-option value="2">Black Olives</ion-option>
+        <ion-option value="3">Extra Cheese</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>-->
 
+  <ion-item>
+    <ion-label>Songs</ion-label>
+    <ion-select [(ngModel)]="song" (ionChange)="songs(song)" okText="Ok" cancelText="Cancel">
+      <ion-option value="1">Female</ion-option>
+      <ion-option value="2">Male</ion-option>
+      <ion-option value="3">Male</ion-option>
+    </ion-select>
+  </ion-item>
   <div class="tab-pane example" id="dataInit">
     <div class="html">
       <div id="alphaTabDataInit" data-file="files/CanonShort.gpx" data-player="lib/alphaSynth/default.sf2" data-player-offset="-70"></div>
-
     </div>
   </div>
-
 </ion-content>

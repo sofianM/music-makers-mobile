@@ -46,7 +46,7 @@ export class MyApp {
     // ];
 
     this.storage.get('Authorization').then(loggedIn => {
-      this.rootPage = loggedIn ? DashboardPage : LoginPage;
+      this.rootPage = loggedIn ? AlphaTabPage : LoginPage;
     });
     translate.setDefaultLang('nl');
   }

@@ -18,11 +18,12 @@ declare var alphaSynth: any;
   templateUrl: 'alpha-tab.html',
 })
 export class AlphaTabPage {
-
+  model: any = {};
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.runAlphaTab();
+
   }
   runAlphaTab() {
     $(document).ready(function () {
@@ -35,6 +36,11 @@ export class AlphaTabPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AlphaTabPage');
   }
+
+  songs(selectedValue) {
+    console.log(selectedValue);
+  }
+
   toggle() {
     $('.aa').slideToggle();
   }
