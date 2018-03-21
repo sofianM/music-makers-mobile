@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Lessons Details</ion-title>
+    <ion-title>{{'lessondetails.pagetitle' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -23,29 +23,29 @@
         </th>
       </tr>
       <tr>
-        <th>Start:</th>
+        <th>{{'lessondetails.start' | translate}}</th>
         <td>{{lesson.startTime.hour}}:{{oneA(lesson.startTime.minute)}}</td>
       </tr>
       <tr>
-        <th>Einde:</th>
+        <th>{{'lessondetails.end' | translate}}</th>
         <td>{{lesson.endTime.hour}}:{{oneA(lesson.endTime.minute)}}</td>
       </tr>
       <tr>
-        <th>Instrument:</th>
+        <th>{{'lessondetails.instrument' | translate}}</th>
         <td>{{lesson.instrumentName}}</td>
       </tr>
       <tr>
-        <th>Docent:</th>
+        <th>{{'lessondetails.teacher' | translate}}</th>
         <td>{{lesson.teacherName}}</td>
       </tr>
       <tr>
-        <th>Informatie:</th>
+        <th>{{'lessondetails.description' | translate}}</th>
         <td>{{lesson.description}}</td>
       </tr>
     </table>
     <div class="absent">
       <ion-item>
-        <ion-label>Absent</ion-label>
+        <ion-label>{{'lessondetails.absent' | translate}}</ion-label>
         <ion-toggle [(ngModel)]="absent" (ionChange)="setAbsent()"></ion-toggle>
       </ion-item>
     </div>

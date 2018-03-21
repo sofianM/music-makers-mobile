@@ -34,6 +34,10 @@ import { LibraryServiceProvider } from '../providers/library-service/library-ser
 import {AlphaTabPage} from "../pages/alpha-tab/alpha-tab";
 import { ConcertServiceProvider } from '../providers/concert-service/concert-service';
 import {ConcertdetailsPage} from "../pages/concertdetails/concertdetails";
+// import ngx-translate and the http loader
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -61,7 +65,14 @@ import {ConcertdetailsPage} from "../pages/concertdetails/concertdetails";
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    IonicStorageModule.forRoot()
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -100,4 +111,8 @@ import {ConcertdetailsPage} from "../pages/concertdetails/concertdetails";
   ]
 })
 export class AppModule {
+}
+// required for AOT compilation
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
 }

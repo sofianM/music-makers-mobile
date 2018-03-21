@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Account Settings</ion-title>
+    <ion-title>{{'usersettings.pagetitle' | translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -8,11 +8,11 @@
   <div class="aboveButtons">
     <div class="firstlastname-container">
       <div class="firstname-container">
-        <ion-label color="primary">First Name: </ion-label>
+        <ion-label color="primary">{{'usersettings.firstname' | translate}} </ion-label>
         <ion-input placeholder="Bart" id="firstname" type="text" name="firstname" [(ngModel)]="model.firstName" required></ion-input>
       </div>
       <div class="lastname-container">
-        <ion-label color="primary">Last Name: </ion-label>
+        <ion-label color="primary">{{'usersettings.lastname' | translate}} </ion-label>
         <ion-input placeholder="Verhoeven" id="lastname" type="text" name="lastname" [(ngModel)]="model.lastName" required></ion-input>
       </div>
     </div>
@@ -20,9 +20,9 @@
       <ion-img src="{{profilePic}}" width="150" height="150" (click)="takePicture()"></ion-img>
     </div>
   </div>
-  <button class="changeName-button" ion-button (click)="changeName()">Change Name</button>
+  <button class="changeName-button" ion-button (click)="changeName()">{{'usersettings.changename' | translate}}</button>
 
   <ion-list>
-    <button ion-item (click)="goToChangePasswordPage()">Change Password</button>
+    <button ion-item (click)="goToChangePasswordPage()">{{'usersettings.changepassword' | translate}}</button>
   </ion-list>
 </ion-content>

@@ -4,6 +4,8 @@ import {GroupDTO} from "../../model/group";
 import {GroupdetailsPage} from "../groupdetails/groupdetails";
 import {GroupServiceProvider} from "../../providers/group-service/group-service";
 import {Storage} from "@ionic/storage";
+import { _ } from '@biesbjerg/ngx-translate-extract';
+import {TranslateService} from "@ngx-translate/core";
 
 /**
  * Generated class for the GroupsPage page.
@@ -24,8 +26,10 @@ export class GroupsPage {
               public loadingCtrl: LoadingController,
               public navParams: NavParams,
               public storage: Storage,
-              public groupServiceProvider: GroupServiceProvider) {
+              public groupServiceProvider: GroupServiceProvider,
+              private translate: TranslateService) {
     let loading = this.loadingCtrl.create({
+      // content: this.translate.get('groups.loadmessage').subscribe((res:string))
       content: 'Loading groups...'
     });
     loading.present();

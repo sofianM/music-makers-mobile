@@ -14,6 +14,7 @@ import {Storage} from "@ionic/storage";
 import {LessondetailsPage} from "../pages/lessondetails/lessondetails";
 import {UsersettingsPage} from "../pages/usersettings/usersettings";
 import {AlphaTabPage} from "../pages/alpha-tab/alpha-tab";
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   templateUrl: 'app.html'
@@ -31,7 +32,8 @@ export class MyApp {
     public menu: MenuController,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    private storage: Storage
+    private storage: Storage,
+    private translate: TranslateService
   ) {
     this.initializeApp();
 
@@ -46,6 +48,7 @@ export class MyApp {
     this.storage.get('Authorization').then(loggedIn => {
       this.rootPage = loggedIn ? DashboardPage : LoginPage;
     });
+    translate.setDefaultLang('nl');
   }
 
   initializeApp() {

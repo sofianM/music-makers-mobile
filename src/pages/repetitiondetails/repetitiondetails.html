@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>My upcoming repetitions</ion-title>
+    <ion-title>{{'repetitiondetails.pagetitle' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,26 +17,26 @@
   <div *ngFor="let r of repetition.calendarRepetitionDTOS" class="centerThis">
   <table>
     <tr>
-      <th>Repetitie info: </th>
+      <th>{{'repetitiondetails.repetitioninfo' | translate}} </th>
       <td>{{r.repetitioninfo}}</td>
     </tr>
     <tr>
-      <th>Datum: </th>
+      <th>{{'repetitiondetails.date' | translate}} </th>
       <td>{{r.date.dayOfMonth}}/{{r.date.monthValue}}/{{r.date.year}}</td>
     </tr>
     <tr>
-      <th>Start:</th>
+      <th>{{'repetitiondetails.starttime' | translate}}</th>
       <td>{{r.startTime.hour}}:{{oneA(r.startTime.minute)}}</td>
     </tr>
     <tr>
-      <th>Einde:</th>
+      <th>{{'repetitiondetails.endtime' | translate}}</th>
       <td>{{r.endTime.hour}}:{{oneA(r.endTime.minute)}}</td>
     </tr>
     <tr>
   </table>
   <div class="absent">
     <ion-item class="toggleSize">
-      <ion-label>Absent</ion-label>
+      <ion-label>{{'repetitiondetails.absent' | translate}}</ion-label>
       <ion-toggle (ionChange)="setAbsent()"></ion-toggle>
     </ion-item>
     <ion-item>

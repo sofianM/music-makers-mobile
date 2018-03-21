@@ -1,0 +1,66 @@
+{
+  "dashboard": {
+    "agenda.title": "Agenda",
+    "groups.title": "Groups",
+    "library.title": "Library",
+    "grades.title": "Grades"
+  },
+  "agendaMenu":{
+    "lesson.cardTitle":"Lessons",
+    "repetition.cardTitle": "Repetitions",
+    "concert.cardTitle": "Concerts"
+  },
+  "lessondetails":{
+    "pagetitle": "Lesson details",
+    "start":"Start: ",
+    "end":"End: ",
+    "instrument":"Instrument: ",
+    "teacher":"Teacher: ",
+    "description": "Description: ",
+    "absent":"Absent "
+  },
+  "repetitiondetails":{
+    "pagetitle": "Upcoming repetitions",
+    "repetitioninfo": "Repetition info: ",
+    "date": "Date: ",
+    "starttime": "Start time: ",
+    "endtime": "End time: ",
+    "absent": "Absent"
+  },
+  "concertdetails":{
+    "pagetitle": "Concert details",
+    "concertinfo":"Concert info: ",
+    "date":"Date: ",
+    "starttime":"Start time: "
+  },
+  "groupdetails":{
+    "pagetitle": "Group details",
+    "name":"Name: ",
+    "email":"Email: "
+  },
+  "groups":{
+    "loadmessage": "Loading groups..."
+  },
+  "changepassword":{
+    "oldpass": "Old password: ",
+    "newpass": "New password: ",
+    "confirmpass": "Confirm new password: ",
+    "changepass": "Change password",
+    "errormessage": "Wrong login data, please try again."
+  },
+  "instruments":{
+    "pagetitle": "Instruments"
+  },
+  "library":{
+    "instruments": "Instruments",
+    "scores": "Scores",
+    "chords": "Chords"
+  },
+  "usersettings":{
+    "pagetitle": "Account settings",
+    "firstname": "First name: ",
+    "lastname": "Last name: ",
+    "changename": "Change name",
+    "changepassword": "Change password"
+  }
+}

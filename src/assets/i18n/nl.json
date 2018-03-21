@@ -1,0 +1,66 @@
+{
+  "dashboard": {
+    "agenda.title": "Agenda",
+    "groups.title": "Groepen",
+    "library.title": "Bibliotheek",
+    "grades.title": "Punten"
+  },
+  "agendaMenu":{
+    "lesson.cardTitle":"Lessen",
+    "repetition.cardTitle": "Repetities",
+    "concert.cardTitle": "Concerten"
+  },
+  "lessondetails":{
+    "pagetitle": "Les details",
+    "start":"Start: ",
+    "end":"Einde: ",
+    "instrument":"Instrument: ",
+    "teacher":"Docent: ",
+    "description": "Beschrijving: ",
+    "absent":"Afwezig "
+  },
+  "repetitiondetails":{
+    "pagetitle": "Aanstaande repetities",
+    "repetitioninfo": "Repetitie info: ",
+    "date": "Datum: ",
+    "starttime": "Starttijd: ",
+    "endtime": "Einde: ",
+    "absent": "Afwezig"
+  },
+  "concertdetails":{
+    "pagetitle": "Concert details",
+    "concertinfo":"Concert info: ",
+    "date":"Datum: ",
+    "starttime":"Starttijd: "
+  },
+  "groupdetails":{
+    "pagetitle": "Groep details",
+    "name":"Naam: ",
+    "email":"Email: "
+  },
+  "groups":{
+    "loadmessage": "Groepen laden..."
+  },
+  "changepassword":{
+    "oldpass": "Oud paswoord: ",
+    "newpass": "Nieuw paswoord: ",
+    "confirmpass": "Bevestig nieuw paswoord: ",
+    "changepass": "Verander paswoord",
+    "errormessage": "Foute login gegevens, probeer opnieuw aub."
+  },
+  "instruments":{
+    "pagetitle": "Instrumenten"
+  },
+  "library":{
+    "instruments": "Instrumenten",
+    "scores": "Partituren",
+    "chords": "Akkoorden"
+  },
+  "usersettings":{
+    "pagetitle": "Account instellingen",
+    "firstname": "Voornaam: ",
+    "lastname": "Achternaam: ",
+    "changename": "Wijzig naam",
+    "changepassword": "Wijzig paswoord"
+  }
+}

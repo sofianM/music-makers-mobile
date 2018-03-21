@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Concert details</ion-title>
+    <ion-title>{{'concertdetails.pagetitle' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,15 +16,15 @@
 <ion-content padding>
   <table>
     <tr>
-      <th>Concert info: </th>
+      <th>{{'concertdetails.concertinfo' | translate}}</th>
       <td>{{concert.concertInfo}}</td>
     </tr>
     <tr>
-      <th>Datum: </th>
+      <th>{{'concertdetails.date' | translate}} </th>
       <td>{{concert.date.dayOfMonth}}/{{concert.date.monthValue}}/{{concert.date.year}}</td>
     </tr>
     <tr>
-      <th>Start:</th>
+      <th>{{'concertdetails.starttime' | translate}}</th>
       <td>{{concert.time.hour}}:{{oneA(concert.time.minute)}}</td>
     </tr>
     <tr>
