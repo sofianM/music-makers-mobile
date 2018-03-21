@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Storage} from "@ionic/storage";
+import {LibraryServiceProvider} from "../../providers/library-service/library-service";
+import {InstrumentDTO} from "../../model/instrument";
 
 /**
  * Generated class for the InstrumentsPage page.
@@ -15,17 +17,24 @@ import {Storage} from "@ionic/storage";
   templateUrl: 'instruments.html',
 })
 export class InstrumentsPage {
+  instruments: InstrumentDTO[];
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public storage: Storage) {
+              public storage: Storage,
+              public libraryServiceProvider: LibraryServiceProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad InstrumentsPage');
     this.getToken().then(token => {
-
-    })
+      this.libraryServiceProvider.getAllInstruments(token)
+        .subscribe(instruments => {
+          this.instruments = instruments;
+        },
+            error => console.log('GetAllInstrumentsError: ', error),
+          () => console.log('Completed'))
+    });
   }
 
   getToken(): Promise<any> {

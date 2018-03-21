@@ -10,13 +10,13 @@ import {Observable} from "rxjs/Observable";
 */
 @Injectable()
 export class LibraryServiceProvider {
-  private getInstrumentsUrl = '';
+  private getInstrumentsUrl = 'https://music-makers.herokuapp.com/instruments';
 
   constructor(public http: HttpClient) {
     console.log('Hello LibraryServiceProvider Provider');
   }
 
-  getInstruments(token: string): Observable<any> {
+  getAllInstruments(token: string): Observable<any> {
     const httpHeaders = {
       headers: {'Accept': 'application/json', 'Authorization': token}
     };

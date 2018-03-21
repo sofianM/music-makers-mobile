@@ -8,5 +8,20 @@
 
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item-sliding *ngFor="let instrument of instruments">
+      <ion-item>
+        <ion-card>
+          <ion-card-header>
+            {{instrument.name}}
+          </ion-card-header>
+          <ion-card-content>
+            <p>Soort: {{instrument.soort.name}}</p>
+            <p>Type: {{instrument.type.name}}</p>
+            <p>Uitvoering: {{instrument.uitvoering.name}}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
