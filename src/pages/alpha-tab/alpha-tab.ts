@@ -18,16 +18,17 @@ declare var alphaSynth: any;
   templateUrl: 'alpha-tab.html',
 })
 export class AlphaTabPage {
-
+  model: any = {};
+  // song = 'choose a song';
+  song = 'Rock Licks - Some Licks From Jimi Hendrix"';
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.runAlphaTab();
+
   }
   runAlphaTab() {
     $(document).ready(function () {
       $('#alphaTabDataInit').alphaTab({
-        file: 'https://rawgit.com/CoderLine/alphaTab/master/Samples/JavaScript/files/Canon.gp5'
       });
     });
   }
@@ -35,6 +36,13 @@ export class AlphaTabPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AlphaTabPage');
   }
+
+  songs(selectedValue) {
+    console.log(selectedValue);
+    this.song = selectedValue;
+    this.runAlphaTab();
+  }
+
   toggle() {
     $('.aa').slideToggle();
   }

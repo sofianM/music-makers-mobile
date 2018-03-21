@@ -15,12 +15,45 @@
 
 <ion-content padding>
 
-
+  <ion-item>
+    <ion-label>Songs</ion-label>
+    <ion-select [(ngModel)]="song" (ionChange)="songs(song)" okText="Ok" cancelText="Cancel">
+      <ion-option value="The crow, the owl and the dove">The crow, the owl and the dove</ion-option>
+      <ion-option value="Canon rock">Canon rock</ion-option>
+      <ion-option value="Rock Licks - Some Licks From Jimi Hendrix">Rock Licks - Some Licks From Jimi Hendrix</ion-option>
+    </ion-select>
+  </ion-item>
   <div class="tab-pane example" id="dataInit">
     <div class="html">
-      <div id="alphaTabDataInit" data-file="files/CanonShort.gpx" data-player="lib/alphaSynth/default.sf2" data-player-offset="-70"></div>
+      <div [ngSwitch]="song">
 
+        <div *ngSwitchCase="'The crow, the owl and the dove'">
+
+
+          <div id="alphaTabDataInit" data-file="../assets/songs/NightWish.gp5" data-tracks="3"
+               data-player-offset="[-10,-70]"></div>
+
+
+        </div>
+
+        <div *ngSwitchCase="'Canon rock'">
+
+          <div id="alphaTabDataInit" data-file="../assets/songs/Canon.gp5" data-tracks="3"
+               data-player-offset="[-10,-70]"></div>
+
+        </div>
+
+        <div *ngSwitchCase="'Rock Licks - Some Licks From Jimi Hendrix'">
+
+          <div id="alphaTabDataInit" data-file="../assets/songs/Rock Licks - Some Licks From Jimi Hendrix.gp3" data-tracks="3"
+               data-player-offset="[-10,-70]"></div>
+
+        </div>
+
+
+        <div *ngSwitchDefault class="centering bold">Laad een liedje in.</div>
+
+      </div>
     </div>
   </div>
-
 </ion-content>
