@@ -31,6 +31,12 @@ export class InstrumentsPage {
       this.libraryServiceProvider.getAllInstruments(token)
         .subscribe(instruments => {
           this.instruments = instruments;
+          for( let instrument of this.instruments) {
+            console.log(instrument.name);
+            console.log(instrument.soort.name);
+            console.log(instrument.instrumentType.name);
+            console.log(instrument.uitvoering.name);
+          }
         },
             error => console.log('GetAllInstrumentsError: ', error),
           () => console.log('Completed'))

@@ -9,7 +9,7 @@ export class InstrumentDTO {
   name: string;
   soort: InstrumentSoortDTO;
   uitvoering: InstrumentUitvoeringDTO;
-  type: InstrumentTypeDTO;
+  instrumentType: InstrumentTypeDTO;
 }
 
 export class InstrumentSoortDTO {
