@@ -50,7 +50,14 @@
     "errormessage": "Wrong login data, please try again."
   },
   "instruments":{
-    "pagetitle": "Instruments"
+    "pagetitle": "Instruments",
+    "type": "Type: ",
+    "kind": "Kind: ",
+    "version": "Version: "
+  },
+  "grades":{
+    "pagetitle": "Grades",
+    "score": "Score: "
   },
   "library":{
     "pagetitle": "Library",
