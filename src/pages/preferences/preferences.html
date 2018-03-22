@@ -18,11 +18,11 @@
   <ion-item-divider>{{'lang.languages' | translate}}</ion-item-divider>
   <ion-item>
     <ion-label>{{'lang.english' | translate}}  </ion-label>
-    <ion-radio checked="true" (ionSelect)="useLanguage('en')"> </ion-radio>
+    <ion-radio checked="{{isEnglish}}" (ionSelect)="useLanguage('en')"> </ion-radio>
   </ion-item>
   <ion-item>
     <ion-label>{{'lang.dutch' | translate}}  </ion-label>
-    <ion-radio (ionSelect)="useLanguage('nl')"> </ion-radio>
+    <ion-radio checked="{{!isEnglish}}" (ionSelect)="useLanguage('nl')"> </ion-radio>
   </ion-item>
   </ion-item-group>
 
