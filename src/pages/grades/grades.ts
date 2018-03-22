@@ -34,6 +34,9 @@ export class GradesPage {
         this.libraryServiceProvider.getGrades(token)
           .subscribe(grades => {
             this.grades = grades;
+            for (let grade of this.grades) {
+              grade.score *= 100;
+            }
           },
             error => console.log('GetGradesError: ', error),
             () => console.log('Completed'))
