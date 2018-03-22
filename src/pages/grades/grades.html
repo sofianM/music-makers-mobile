@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>grades</ion-title>
+    <ion-title>{{'grades.pagetitle' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -22,7 +22,7 @@
             {{grade.instrument.name}}
           </ion-card-header>
           <ion-card-content>
-            <p>Score: {{grade.score}}/100</p>
+            <p>{{'grades.score' | translate}} {{grade.score}}/100</p>
           </ion-card-content>
         </ion-card>
       </ion-item>

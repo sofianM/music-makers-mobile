@@ -16,9 +16,9 @@
             {{instrument.name}}
           </ion-card-header>
           <ion-card-content>
-            <p>Type: {{instrument.instrumentType.name}}</p>
-            <p>Soort: {{instrument.soort.name}}</p>
-            <p>Uitvoering: {{instrument.uitvoering.name}}</p>
+            <p>{{'instruments.type' | translate}} {{instrument.instrumentType.name}}</p>
+            <p>{{'instruments.kind' | translate}} {{instrument.soort.name}}</p>
+            <p>{{'instruments.version' | translate}} {{instrument.uitvoering.name}}</p>
           </ion-card-content>
         </ion-card>
       </ion-item>

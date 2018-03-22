@@ -50,7 +50,14 @@
     "errormessage": "Foute login gegevens, probeer opnieuw aub."
   },
   "instruments":{
-    "pagetitle": "Instrumenten"
+    "pagetitle": "Instrumenten",
+    "type": "Type: ",
+    "kind": "Soort: ",
+    "version": "Uitvoering: "
+  },
+  "grades":{
+    "pagetitle": "Punten",
+    "score": "Score: "
   },
   "library":{
     "pagetitle": "Bibliotheek",
